@@ -29,7 +29,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 SECRET_KEY = 'django-insecure-kll6$-iy_^j19=9uscsazwutjip7z@7_@v$tpto84ye+^j#2xo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEBUG' in os.environ
+DEBUG = True
 
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://*.herokuapp.com'] 
@@ -54,7 +54,9 @@ INSTALLED_APPS = [
     'cloudinary',
     'cloudinary_storage',
     'bookings',
-    'home'
+    'home',
+    'services',
+    'reviews',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
@@ -112,15 +114,16 @@ WSGI_APPLICATION = 'Elvira_bookings.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-if "DEBUG" in os.environ:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
+#if "DEBUG" in os.environ:
+ #   DATABASES = {
+  #      'default': {
+   #         'ENGINE': 'django.db.backends.sqlite3',
+    #        'NAME': BASE_DIR / 'db.sqlite3',
+     #   }
+    #}
+#else:
+
+DATABASES = {
         'default': dj_database_url.parse(os.environ.get("DB_URL"))
     }
 
