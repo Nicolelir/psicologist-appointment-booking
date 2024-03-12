@@ -49,26 +49,49 @@ footer {
     flex-shrink: 0;
     background-color: var(--off-white);
     display: flex;
-    flex-direction: column; /* Change to column to stack the sections vertically */
+    flex-direction: column; /* Stack the sections vertically */
     align-items: center;
-    padding: 10px;
+    padding: 10px; /* Adjust padding as needed */
     border-top: var(--border);
+}
+
+#contact-container-elements,
+#info-container-elements {
+    margin-bottom: 2px; /* Adjust as needed */
+}
+
+
+.center-form form {
+    margin-bottom: 0; /* Remove default form margin */
+}
+
+.contact-label {
+    margin-left: 10px; /* Adjust as needed */
+    margin-top: 30px;
+   
+}
+
+
+
+.contact-text {
+    margin-left: 5px; /* Adjust as needed */
+   
 }
 
 .social-icons-row {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+   
 }
 
 .social-icon {
-    height: 2rem;
+    height: 1.5rem;
     margin: 0 1rem;
 }
 
 .copyright-section {
-    margin-top: 10px; /* Adjust as needed */
+    margin-top: 10px; /* Adjust margin as needed */
 }
 /* Header */
 .navbar {

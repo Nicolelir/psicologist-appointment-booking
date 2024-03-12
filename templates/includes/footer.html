@@ -3,17 +3,22 @@
 <footer>
 
     <section class="container-fluid" id="contact-container">
-        <div class="row align-items-center">
-            <h3 class="contact-heading text-center">Contact Info</h3>
-            <div class="col-12 col-sm-4 col-md-6 inline-block" id="contact-container-elements">
-             
+        <div class="row">
+            <div class="col-12 col-md-6 text-center" id="contact-container-elements">
+                <h3 class="contact-heading text-center">Contact Info</h3>
+                <div class="contact-info">
+                    <div class="text-box">
+                        <p class="contact-label"><i class="fas fa-map-marker-alt"></i> <span class="contact-text">18 The Fairways, Bracken Ct, Donnybrook, Cork, T12 P7YY</span></p>
+                </div>
                 <div class="text-box">
-                    <p>Address</p>
-                    <p>elviraespinoza.contact@gmail.com </p>
-                    <p>Phone number</p>
+                    <p class="contact-label"><i class="far fa-envelope"></i> <span class="contact-text">elviraespinoza.contact@gmail.com</span></p>
+                </div>
+                <div class="text-box">
+                    <p class="contact-label"><i class="fas fa-phone-alt"></i> <span class="contact-text">+569 2222222</span></p>
+                    </div>
                 </div>
             </div>
-            <div class="col-12 col-sm-4 col-md-6 inline-block" id="contact-container-elements">
+            <div class="col-12 col-md-6" id="info-container-elements">
                 <h3 class="contact-heading text-center">Mailing List</h3>
                 <div class="center-form">
                     <form action="" method="post">
@@ -21,7 +26,7 @@
                             required><br>
                         <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email"
                             required><br>
-                        <textarea rows="5" name="projectsummary" id="projectsummary" class="form-control"
+                        <textarea rows="4" name="projectsummary" id="projectsummary" class="form-control"
                             placeholder="Query" required></textarea><br>
                         <div class="form-row text-center">
                             <div class="col">
@@ -34,24 +39,16 @@
         </div>
     </section>
 
-
     <!-- Social media icons-->
-
-
-   
     <div class="social-icons-row">
         {% block copyright %}
-         Elvira Espinoza Copyright 2024
-    {% endblock copyright %}
+            <p class="copyright-section">Elvira Espinoza Copyright 2024</p>
+        {% endblock copyright %}
         <a href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="Linked - Opens in a new tab">
             <img src="{% static 'icons/linkedin_icon.png' %}" alt="LinkedIn Icon" class="social-icon"></a>
         <a href="https://twitter.com/" target="_blank" rel="noopener" aria-label="Twitter - Opens in new tab">
             <img src="{% static 'icons/twitter_icon.png' %}" alt="Twitter Icon" class="social-icon" />
         </a>
-
-
- 
-      
     </div>
 </footer>
   
