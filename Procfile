@@ -1,1 +1,1 @@
-web: gunicorn psycologist-appointment-booking.wsgi
+web: gunicorn Elvira_bookings.wsgi
