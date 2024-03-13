@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Roboto:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:wght@100&display=swap');
 
 /* Asterisk wildcard selector to override default styles added by the browser */
 * {
@@ -44,39 +44,61 @@ main {
     background-color: var(--white);
 }
 
+/* Homepage */
+#therapy {
+    height: 600px;
+    width: 100%;
+    background: url("../images/homepage.jpeg") no-repeat center center/cover;
+    position: relative;
+    }
+
+#cover-text {
+    /* Final rgba value sets the opacity so it is semi-transparent */
+    background-color: rgba(255, 192, 203, .6);
+    font-size: 130%;
+    position: absolute;
+    bottom: 30px;
+    width: 80%;
+    min-height: 200px;
+    padding-top: 40px;
+    padding-left: 10px;
+}
+
+#cover-text>h1,
+#cover-text>h2,
+#cover-text>h3 {
+    color: #ffffff;
+}
+
+
+
 /* Footer */
 footer {
     flex-shrink: 0;
-    background-color: var(--off-white);
+    color:white;
     display: flex;
     flex-direction: column; /* Stack the sections vertically */
     align-items: center;
-    padding: 10px; /* Adjust padding as needed */
     border-top: var(--border);
+    font-size: 20px;
 }
 
 #contact-container-elements,
 #info-container-elements {
-    margin-bottom: 2px; /* Adjust as needed */
+    background-color: #b69dcb;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 
-.center-form form {
-    margin-bottom: 0; /* Remove default form margin */
-}
 
 .contact-label {
     margin-left: 10px; /* Adjust as needed */
-    margin-top: 30px;
+    margin-top: 20px;
    
 }
 
 
-
-.contact-text {
-    margin-left: 5px; /* Adjust as needed */
-   
-}
 
 .social-icons-row {
     display: flex;
@@ -90,9 +112,16 @@ footer {
     margin: 0 1rem;
 }
 
-.copyright-section {
-    margin-top: 10px; /* Adjust margin as needed */
+.copyright {
+    background-color: #9F417F;
+    padding-top: 10px;
+    font-size: 16px;
 }
+
+.pink-icon {
+    color: #9F417F;
+}
+
 /* Header */
 .navbar {
     background-color: var(--off-white);

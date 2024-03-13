@@ -1,5 +1,12 @@
 from django.contrib import admin
-from .models import Home
+from django_summernote.admin import SummernoteModelAdmin
+from .models import Contact
+
+
 
 # Register your models here.
-admin.site.register(Home)
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+
+    list_display = ('query', 'read',)
