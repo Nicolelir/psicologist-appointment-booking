@@ -29,7 +29,7 @@ TEMPLATES_DIR = BASE_DIR / 'templates'
 SECRET_KEY = 'django-insecure-kll6$-iy_^j19=9uscsazwutjip7z@7_@v$tpto84ye+^j#2xo'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.gitpod.io', '.herokuapp.com']
 CSRF_TRUSTED_ORIGINS = ['https://*.gitpod.io', 'https://*.herokuapp.com'] 
@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django_summernote',
     'djrichtextfield',
+   
     'bookings',
     'home',
     'services',

@@ -1,6 +1,46 @@
-{% extends "base.html" %}
+{% extends "base.html" %} 
+{% block content %} 
 {% load static %}
+<div>
+    <h1 class="text-center p-2 d-block">About me</h1>
+</div>
 
-{% block content %}
-<h2>This is the about and services page</h2>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-md-4 text-center">
+            {% if about.profile_image %}
+            <img src="{{ about.profile_image.url }}" class="profile-image" alt="{{ about.title |safe }}">
+            {% else %}
+            <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="{{ about.title|safe }}">
+            {% endif %}
+        </div>
+        <div class="col-12 col-md-8">
+            <!-- Title goes between these h2 tags -->
+            <h2>{{ about.title|safe  }}</h2>
+            <!-- Content goes directly underneath this -->
+            {% if about.content %}
+            <div>{{ about.content |safe }}</div>
+            {% else %}
+                <p>No content available</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<div>
+    <h1 class="text-center p-2 d-block">Our services</h1>
+</div>
+
+<div class="container d-flex flex-row flex-wrap justify-content-center">
+    {% for service in services %} 
+    <div class="card m-3" style="width: 18rem;">
+        <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
+        <div class="card-body">
+            <h2 class="card-title">{{ service.title|safe }}</h2>
+            <p class="card-text">{{ service.description|safe }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
 {% endblock %}
