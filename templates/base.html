@@ -23,26 +23,32 @@
     {% block onload_js %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js" integrity="sha512-1/RvZTcCDEUjY/CypiMz+iqqtaoQfAITmNSJY17Myp4Ms5mdxPS5UV7iOfdZoxcGhzFbOm6sntTKJppjvuhg4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {% endblock %}
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/96f1cc7a8c.js" crossorigin="anonymous"></script>
     <title>Elvira's website - {% block title %}{% endblock %}</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 
     <!-- Favicon -->
 
-    <!-- Fontawesome -->
-    <script src="https://kit.fontawesome.com/96f1cc7a8c.js" crossorigin="anonymous"></script>
+
+    
 </head>
+
 <body>
     {% include 'includes/header.html' %}
 
     <main class="flex-shrink-0 main-bg">
+        <div class="header-container">
+        <h1 class="text-start m-3">Psycologist Elvira Espinoza Ahumada</h1>
         {% if user.is_authenticated %}
-        <p class="text-end m-3">You are logged in as {{ user.username }}</p>
+        <p class="text-end m-3 logged-in-user">You are logged in as {{ user.username }}</p>
         {% else %}
         <p class="text-end m-3">You are not logged in</p>
         {% endif %}
-
+        </div>
         {% block content %}
         {% endblock %}
+  
     </main>
     
     <script src="{% static 'js/script.js' %}"></script>
