@@ -15,7 +15,11 @@
 
 <div class="booking-container text-center">
     <div>
+        {% if not user.is_authenticated %}
+        <p class="text-center m-3 signup"><a href="{% url 'account_signup' %}" class="btn btn-custom p-2 px-4 mb-4">Book an appointment</a></p>
+        {% else %}
         <p class="text-center m-3 booking"><a href="{% url 'bookings' %}">Book appointment</a></p>
+        {% endif %}
     </div>
 </div>
 
