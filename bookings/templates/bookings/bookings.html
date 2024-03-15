@@ -30,16 +30,29 @@
             <tbody>
                 {% for booking in request.user.bookings.all %}
                 <tr style="background-color: rgba(255, 192, 203, .5);">
-                    <td>{{ booking.date }}</td>
-                    <td>{{ booking.time }}</td>
-                    <td>{{ booking.notes }}</td>
+                    <td>{{ booking.date|safe }}</td>
+                    <td>{{ booking.time|safe}}</td>
+                    <td>{{ booking.notes|safe }}</td>
+                    <td>{% if request.user == booking.user %}
+                        <div class="text-center">
+                            <!-- edit/delete icon display -->
+                            <div class="d-flex justify-content-center justify-content-md-start">
+                                <div class="col">
+                                    <a href="{% url 'edit_booking' booking.id %}" class="btn btn-link"
+                                        title="Edit Booking">Edit</a>
+                                </div>
+                                <div class="col">
+                                    <a href="{% url 'delete_booking' booking.id %}" class="btn btn-link"
+                                        title="Delete Booking">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
-<div>
-    <a href="{% url 'booking_add' %}" class="my-4" title="Make a Booking">Book a new appointment here</a>
-</div>
     {% endif %}
-{% endblock %}
+    {% endblock %}

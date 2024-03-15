@@ -4,7 +4,7 @@ from django.contrib import messages
 from .models import Booking
 
 class BookingForm(forms.ModelForm):
-    """A form to create a booking"""
+    """A form to add a booking"""
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
@@ -27,19 +27,12 @@ class BookingForm(forms.ModelForm):
         # Check if a booking with the same date and time already exists
         if (date and time and
                 Booking.objects.filter(date=date, time=time).exists()):
-            self.add_error('time', 'This date and time is already booked.')
-
-        instance = getattr(self, 'instance', None)
-        if instance:
-            # Exclude date and time from cleaning if they haven't been changed
-            if cleaned_data.get('date') == instance.date:
-                cleaned_data.pop('date', None)
-            if cleaned_data.get('time') == instance.time:
-                cleaned_data.pop('time', None)
-        return cleaned_data
+            self.add_error('time', 'This date and time is already booked. Please choose another day and time')
 
     class Meta:
         model = Booking
         fields = [
             'first_name', 'last_name', 'email', 'date', 'time'
         ]
+
+    

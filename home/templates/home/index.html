@@ -5,24 +5,30 @@
 {% block content %}
 <!-- Main content -->
 
-<section id="therapy">
-    <div id="cover-text">
-        <h1>Welcome!</h1>
-        <h2>Only you can make the decision to feel better and gain a greater understanding of your own mental health. </h2>
-        <h2>Book and appointment now or send me a message with your information through the form.</h2>    
-        <h2>Don't postpone your mental health, ask for help in time.</h2>
+<div class="image-background-home"></div>
+    <div class="bio">
+        <br>
+        <h2 class="text-center">Welcome!</h2>
+        <h3 class="text-center">
+            My name is Elvira Espinoza Ahumada, the psychologist behind ""Psychology on the Road""</h3> 
+         <h3 class="text-center"> 
+            My objective focuses on three aspects; offer you a safe and compassionate space where you can explore your emotions and heal all your wounds, 
+            also provide you with support during emigration processes and finally, overcome the loss of a child during pregnancy, 
+            an experience that I have personally faced. I am here to accompany you on your path to emotional well-being and personal growth, 
+            wherever you are in the world.</h3>
     </div>
-</section>
 
-<div class="booking-container text-center">
-    <div>
-        {% if not user.is_authenticated %}
-        <p class="text-center m-3 signup"><a href="{% url 'account_signup' %}" class="btn btn-custom p-2 px-4 mb-4">Book an appointment</a></p>
-        {% else %}
-        <p class="text-center m-3 booking"><a href="{% url 'bookings' %}">Book appointment</a></p>
-        {% endif %}
+
+    <div class="container-fluid">
+        <div>
+            {% if not user.is_authenticated %}
+            <p class="text-center m-3 signup"><a href="{% url 'services' %}" class="btn btn-custom p-2 px-4 mb-4">Read more about me!</a></p>
+            {% else %}
+            <p class="text-center m-3 booking"><a href="{% url 'bookings' %}">My appointments</a></p>
+            {% endif %}
+        </div>
     </div>
-</div>
+
 
 
 {% endblock %}

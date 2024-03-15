@@ -8,11 +8,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-12 col-md-4 text-center">
-            {% if about.profile_image %}
-            <img src="{{ about.profile_image.url }}" class="profile-image" alt="{{ about.title |safe }}">
-            {% else %}
-            <img src="{% static 'images/nobody.jpg' %}" class="profile-image" alt="{{ about.title|safe }}">
-            {% endif %}
+            <img src="{% static 'images/about_image.jpg' %}" class="profile-image" alt="{{ about.title|safe }}">
         </div>
         <div class="col-12 col-md-8">
             <!-- Title goes between these h2 tags -->
@@ -43,4 +39,15 @@
     {% endfor %}
 </div>
 
+<div class="services-container text-center">
+    <div>
+        {% if not user.is_authenticated %}
+        <h3>Dreams are bigger than fears!</h3>
+        <p class="text-center m-3 signup"><a href="/accounts/login/" class="btn btn-custom p-2 px-4 mb-4">To book and appointment with me please sign in here!</a></p>
+        {% else %}
+        <h3>Dreams are bigger than fears!</h3>
+        <p class="text-center m-3 signup"><a href="{% url 'bookings' %}" class="btn btn-custom p-2 px-4 mb-4">Book your appointment here!</a></p>
+        {% endif %}
+    </div>
+</div>
 {% endblock %}

@@ -26,7 +26,6 @@
                     <a class="nav-link {% if url_name == 'services' %}active{% endif %}" href="{% url 'services' %}">Services</a>
                 </li>
                 {% if request.user.is_authenticated %}
-                
                 <li class="nav-item">
                     <a class="nav-link {% if url_name == 'booking_add' %}active{% endif %}" href="{% url 'booking_add' %}">Book Appointment</a>
                 </li>
@@ -43,7 +42,6 @@
                 <li class="nav-item">
                     <a class="nav-link {% if url_name == 'accounts_signup' %}active{% endif %}" href="/accounts/signup/">Register</a>
                 </li>
-                
                 {% endif %}
             </ul>
         </div>
