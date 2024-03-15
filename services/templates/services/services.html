@@ -1,6 +1,7 @@
 {% extends "base.html" %} 
 {% block content %} 
 {% load static %}
+
 <div>
     <h1 class="text-center p-2 d-block">About me</h1>
 </div>
@@ -8,17 +9,18 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-12 col-md-4 text-center">
-            <img src="{% static 'images/about_image.jpg' %}" class="profile-image" alt="{{ about.title|safe }}">
+            <img src="{% static 'images/about_image.jpg' %}" width="75%" class="profile-image" alt="profile-image">
         </div>
         <div class="col-12 col-md-8">
-            <!-- Title goes between these h2 tags -->
-            <h2>{{ about.title|safe  }}</h2>
-            <!-- Content goes directly underneath this -->
-            {% if about.content %}
-            <div>{{ about.content |safe }}</div>
-            {% else %}
-                <p>No content available</p>
-            {% endif %}
+            <h2>My Mission</h2>
+            <p>My mission at Psicología en Ruta is to provide you with a welcoming space where you feel comfortable to share your emotions and concerns. 
+                I am committed to accompanying you on your journey toward emotional well-being and self-discovery, 
+                offering you personalized guidance and support every step of the way.</p>
+            <h2>My Vision</h2>
+            <p>I aspire to create a world where all people, regardless of their geographic location,
+                have access to quality emotional and spiritual support that allows them to live full and meaningful lives. 
+                I want to be a trusted guide on the path to emotional well-being, providing personalized and effective services 
+                that promote mental health and personal growth at all stages of life</p>
         </div>
     </div>
 </div>
@@ -41,12 +43,12 @@
 
 <div class="services-container text-center">
     <div>
-        {% if not user.is_authenticated %}
-        <h3>Dreams are bigger than fears!</h3>
-        <p class="text-center m-3 signup"><a href="/accounts/login/" class="btn btn-custom p-2 px-4 mb-4">To book and appointment with me please sign in here!</a></p>
+        {% if user.is_authenticated %}
+            <h3>Dreams are bigger than fears!</h3>
+            <p class="text-center m-3 signup"><a href="{% url 'bookings' %}" class="btn btn-custom p-2 px-4 mb-4">Book your appointment here!</a></p>
         {% else %}
-        <h3>Dreams are bigger than fears!</h3>
-        <p class="text-center m-3 signup"><a href="{% url 'bookings' %}" class="btn btn-custom p-2 px-4 mb-4">Book your appointment here!</a></p>
+            <h3>Dreams are bigger than fears!</h3>
+            <p class="text-center m-3 signup"><a href="{% url 'login' %}" class="btn btn-custom p-2 px-4 mb-4">To book an appointment with me please sign in here!</a></p>
         {% endif %}
     </div>
 </div>

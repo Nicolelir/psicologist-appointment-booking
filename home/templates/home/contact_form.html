@@ -1,10 +1,26 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block title %}Contact Form{% endblock %}
+
 {% block content %}
-    <h2>Contact Form</h2>
-    <form method="post" action="{% url 'home:contact_form' %}">
+
+{% load crispy_forms_tags %}
+<div class="text-center">
+    <h1 class="text-center mx-auto section-title my-3" id="booking">Contact Form</h1>
+    <form method="post" class="text-center w-75 mx-auto booking-section">
+        {{ form | crispy }}
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+        <button class="btn btn-secondary" type="submit">Submit</button>
+        </form>
+</div>
+
+<div class="message-box">
+    {% for message in messages %}
+        {{ message|safe }}
+    {% endfor %}
+</div>
+
+
 {% endblock %}
