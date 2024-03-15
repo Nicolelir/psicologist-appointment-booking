@@ -194,3 +194,11 @@ p.booking {
     text-align: center;
     
 }
+
+.appointment{
+    height: 3px; /* Adjust the height to make it thicker */
+    width: 70%; /* Adjust the width to make it shorter */
+    margin: 20px auto; /* Center the horizontal rule */
+    background-color: black;/* Change the color to your desired style */
+    border: none;
+}

@@ -31,4 +31,11 @@
         <button type="submit" class="btn btn-custom booking-btn">Save</button>
     </form>
 </div>
+
+<div class="message-box">
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+</div>
+</div>
 {% endblock %}
