@@ -8,7 +8,7 @@
 
 {% load crispy_forms_tags %}
 <div class="text-center">
-    <h1 class="text-center mx-auto section-title my-3" id="booking">Create Booking</h1>
+    <h1 class="text-center mx-auto section-title my-3" id="booking">Book an appointment</h1>
     <form method="post" class="text-center w-75 mx-auto booking-section">
         {% csrf_token %}
         <div class="row mx-auto">
@@ -40,6 +40,10 @@
 </div>
 
 <div>
-    <a href="{% url 'bookings' %}" class="my-4" title="Make a Booking">My bookings</a>
+    {% if request.user.is_authenticated %}
+    <a href="{% url 'bookings' %}" class="my-4" title="Make a Booking">Your appointments</a>
+    {% else %}
+    <p class="text-center m-3 signup"><a href="{% url 'account_login' %}" class="btn btn-custom p-2 px-4 mb-4">To book an appointment with me or leave a review please sign in here!</a></p>
 </div>
+{% endif %}
 {% endblock %}

@@ -23,8 +23,6 @@
         <div>
             {% if not user.is_authenticated %}
             <p class="text-center m-3 signup"><a href="{% url 'services' %}" class="btn btn-custom p-2 px-4 mb-4">Read more about me!</a></p>
-            {% else %}
-            <p class="text-center m-3 booking"><a href="{% url 'bookings' %}">My appointments</a></p>
             {% endif %}
         </div>
     </div>

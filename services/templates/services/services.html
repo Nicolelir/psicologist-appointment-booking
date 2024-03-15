@@ -45,11 +45,13 @@
     <div>
         {% if user.is_authenticated %}
             <h3>Dreams are bigger than fears!</h3>
-            <p class="text-center m-3 signup"><a href="{% url 'bookings' %}" class="btn btn-custom p-2 px-4 mb-4">Book your appointment here!</a></p>
+            <p class="text-center m-3 signup"><a href="{% url 'booking_add' %}" class="btn btn-custom p-2 px-4 mb-4">Book your appointment here!</a></p>
         {% else %}
-            <h3>Dreams are bigger than fears!</h3>
-            <p class="text-center m-3 signup"><a href="{% url 'login' %}" class="btn btn-custom p-2 px-4 mb-4">To book an appointment with me please sign in here!</a></p>
+        <p class="text-center m-3 signup"><a href="{% url 'account_login' %}" class="btn btn-custom p-2 px-4 mb-4">To book an appointment with me please sign in here!</a></p>
+            
         {% endif %}
     </div>
 </div>
 {% endblock %}
+
+

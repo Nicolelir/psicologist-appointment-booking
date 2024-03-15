@@ -146,13 +146,7 @@ img.logo {
     font-weight: 500;
 }
 
-.logged-in-user {
-    color: white;
-    background-color:   #9F417F;
-    padding: 10px;
-    font-size: 16px;
-    
-}
+
 .header-container {
     display: flex; 
     justify-content: space-between; 
@@ -184,19 +178,3 @@ p.booking {
 }
 
 
-/* to fix later, needs to be reponsive  */
-.image-background-home {
-    background-image: url("../images/homepage.jpg");
-    min-height: 100vh;
-    position: relative;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover; 
-}
-
-@media screen and (max-width: 768px) {
-    .image-background-home {
-        background-size: contain; 
-    }
-}
