@@ -37,16 +37,11 @@
             </div>
             </div>
             <div class="col-12 col-md-6" id="info-container-elements">
-                <h3 class="contact-heading text-center">Contact Form</h3>
-                <hr>
-                <div class="center-form">
-                    <div id="footer">
-                        
-                        <p>Name: {{ latest_contact.name }}</p>
-                        <p>Email: {{ latest_contact.email }}</p>
-                        <p>Query: {{ latest_contact.query }}</p>
-                    </div>
-                </div>
+                <form method="post">
+                    {{ footer_form | crispy }}
+                    {% csrf_token %}
+                    <button class="btn btn-secondary" type="submit">Submit</button>
+                </form>
             </div>
         </div>
     </section>
