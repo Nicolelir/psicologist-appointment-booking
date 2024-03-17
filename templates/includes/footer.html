@@ -36,14 +36,16 @@
                 
             </div>
             </div>
-            <div class="col-12 col-md-6" id="info-container-elements">
-                <form method="post">
-                    {{ footer_form | crispy }}
-                    {% csrf_token %}
-                    <button class="btn btn-secondary" type="submit">Submit</button>
-                </form>
+           
+                    <div class="col-12 col-md-6 d-flex justify-content-center align-items-center" id="info-container-elements">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ footer_form | crispy }}
+                            <button class="btn btn-info" type="submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
             </div>
-        </div>
     </section>
 
     <!-- Social media icons-->
