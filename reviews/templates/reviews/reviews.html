@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block content %}
 <h2>This is the reviews page</h2>
+    <ul>
+        {% for review in reviews %}
+            <li>{{ review.title }} - {{ review.author }} - {{ review.created_on }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Add a Review</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit Review</button>
+    </form>
 {% endblock %}

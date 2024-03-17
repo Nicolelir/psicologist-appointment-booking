@@ -1,36 +1,28 @@
 {% extends 'base.html' %}
-
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block title %}Leave a Review{% endblock %}
 
 {% block content %}
 
-{% load crispy_forms_tags %}
-<div class="text-center">
-    <h1 class="text-center mx-auto section-title my-3" id="booking">Leave a Review</h1>
-    <form method="post" class="text-center w-75 mx-auto booking-section">
-        {% csrf_token %}
-        <div class="row mx-auto">
-            <!-- Calling each form input item to allow for more control in styling -->
-            <div class="col m-4">
-                <h4 class="text-center mb-3">Your Details</h4>
-                {{ form.author|as_crispy_field|safe }}
-                {{ form.title|as_crispy_field|safe }}
-                {{ form.service|as_crispy_field|safe }}
-                {{ form.text|as_crispy_field|safe }}
-                {{ form.rating|as_crispy_field|safe }}
-                {{ form.date|as_crispy_field|safe }}
-        </div>
-        <button type="submit" class="btn btn-custom booking-btn">Save</button>
-    </form>
-</div>
 
-<div class="message-box">
-    {% for message in messages %}
-        {{ message|safe }}
-    {% endfor %}
+<div class="container d-flex flex-row flex-wrap justify-content-center">
+    <div class="rev m-3">
+        <div class="rev-body">
+            <h1 class="text-center mb-4">Leave a Review</h1>
+            <form method="post" class="review-form rev-text">
+                {% csrf_token %}
+                {% crispy form %}
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="message-box mt-4">
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message|safe }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-{% endif %}
 {% endblock %}

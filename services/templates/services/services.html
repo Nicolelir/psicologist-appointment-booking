@@ -31,9 +31,9 @@
 
 <div class="container d-flex flex-row flex-wrap justify-content-center">
     {% for service in services %} 
-    <div class="card m-3" style="width: 18rem;">
-        <div style="height: 200px; overflow: hidden;"> 
-            <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}" style="width: 100%; height: 100%; object-fit: cover;">
+    <div class="card m-3">
+        <div> 
+            <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
             <!-- Use object-fit: cover to ensure the image covers the container without distortion -->
         </div>
         <div class="card-body">

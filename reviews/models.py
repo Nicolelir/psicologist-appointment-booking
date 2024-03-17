@@ -1,6 +1,7 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from django.core.validators import MaxValueValidator, MinValueValidator
 from cloudinary.models import CloudinaryField
 from bookings.models import Booking
@@ -22,20 +23,23 @@ SERVICES_TYPES= (("online individual therapy", "Online Individual Therapy"), ("o
 
 class Review(models.Model):
     """
-    Store a single album post
+    A model for leave reviews
     """
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="author_review")
-    title = models.CharField(max_length=100)
-    booking = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name="book_appointment")
+    created_on = models.DateTimeField(auto_now_add=True)
     services = models.ForeignKey(Services, on_delete=models.CASCADE, related_name="type_service")
     text =  models.TextField()
+    rating_value = models.IntegerField(default=1, validators=[MaxValueValidator(5), MinValueValidator(1)])
     status = models.IntegerField(choices=STATUS, default=0)
-    rating = models.IntegerField(default=1, validators=[MaxValueValidator(5), MinValueValidator(1)])
-    created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
 
     class Meta:
         ordering = ["-created_on"]
 
     def __str__(self):
-        return self.text
+        return str(self.author)
+
+    def rating(self):
+        return self.rating_value
+
+  

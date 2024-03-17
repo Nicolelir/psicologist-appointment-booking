@@ -50,8 +50,6 @@ main {
 
  
 .image{
-
-    min-height: 800px;
     position: relative;
     background-attachment: fixed;
     background-position: center;
@@ -178,11 +176,53 @@ p.booking {
 }
 
 /*Services*/
+.card {
+    width: 18rem;
+    margin: 10px;
+}
+
+.card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    margin-bottom: 1rem;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/*Reviews*/
 
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .image-background-home {
-        background-size: contain;
-        /* Adjust other properties as needed */
+        min-height: 80vh;
     }
 }
+@media (max-width: 767px) {
+    .image {
+        min-height: 30vh; 
+    }
+}
+
