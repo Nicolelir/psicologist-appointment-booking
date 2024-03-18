@@ -13,7 +13,7 @@
         {% csrf_token %}
         <div class="row">
             <!-- Calling each form input item to allow for more control in styling -->
-            <div class="col m-4">
+            <div class="col m-4 mb-5">
                 <h4 class="text-center mb-3">Your Details</h4>
                 {{ form.first_name|as_crispy_field|safe }}
                 {{ form.last_name|as_crispy_field|safe }}
@@ -25,7 +25,7 @@
                 {{ form.time|as_crispy_field|safe  }}
             </div>
         </div>
-        <button type="submit" class="btn btn-primary w-25 mx-auto mb-2">Save</button>
+        <button type="submit" class="btn btn-custom w-25 mx-auto mb-4">Save</button>
     </form>
 </div>
 
@@ -38,7 +38,7 @@
 
 <div class="d-flex justify-content-center align-items-center">
     {% if request.user.is_authenticated %}
-    <a href="{% url 'bookings' %}" class="btn btn-outline-primary w-50 mb-2 align-self-center" title="Make a Booking">Your appointments</a>
+    <a href="{% url 'bookings' %}" class="btn btn-outline-custom w-50 mb-2 align-self-center" title="Make a Booking">Your appointments</a>
     {% else %}
     <p class="text-center w-25  m-2 signup  align-self-center"><a href="{% url 'account_login' %}" class="btn btn-custom p-2 px-4 mb-4">To book an appointment with me or leave a review please sign in here!</a></p>
 </div>

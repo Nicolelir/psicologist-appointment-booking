@@ -2,20 +2,20 @@
 {% load crispy_forms_tags %}
 
 <footer>
-
+    
     <section class="container-fluid" id="contact-container">
         <div class="row">
             <div class="col-12 col-md-6 text-center" id="contact-container-elements">
-                <h3 class="contact-heading text-center">Contact Info</h3>
+                <h3 class="contact-heading text-center ">Contact Info</h3>
                 <hr>
-                <div class="contact-info">
+                <div class="contact-info ">
                     <div class="text-box">
                         <p class="contact-label"><i class="fas fa-map-marker-alt pink-icon"></i> <span class="contact-text">18 The Fairways, Bracken Ct, Donnybrook, Cork, T12 P7YY</span></p>
                 </div>
-                <div class="text-box">
+                <div class="text-box ">
                     <p class="contact-label"><i class="fa-solid fa-envelope pink-icon"></i> <span class="contact-text">elviraespinoza.contact@gmail.com</span></p>
                 </div>
-                <div class="text-box">
+                <div class="text-box ">
                     <p class="contact-label"><i class="fas fa-phone-alt pink-icon"></i> <span class="contact-text">+569 2222222</span></p>
                     </div>
 
@@ -38,26 +38,22 @@
             </div>
            
                     <div class="col-12 col-md-6 d-flex justify-content-center align-items-center" id="info-container-elements">
+
                         <form method="post">
                             {% csrf_token %}
                             {{ footer_form | crispy }}
-                            <button class="btn btn-info" type="submit">Submit</button>
+                            <button class="btn btn-custom" type="submit">Submit</button>
                         </form>
                     </div>
                 </div>
             </div>
     </section>
 
-    <!-- Social media icons-->
+
     <section class="container-fluid copyright" id="copyright-container">
 
-        
         {% block copyright %}
             <p class="copyright-section text-center">&copy;2024 - Made by Nicole Rojas </p>
         {% endblock copyright %}
-    
-
 </section>
 </footer>
-  
-

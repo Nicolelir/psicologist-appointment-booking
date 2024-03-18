@@ -8,12 +8,13 @@
 <div class="image">
     <img class="img-fluid hero-image" src="{% static 'images/homepage.jpg' %}">
 </div>
-    <div class="bio">
+
+    <div class="container mt-3 mb-3 justify-text">
         <br>
-        <h2 class="text-center">Welcome!</h2>
-        <h3 class="text-center">
-            My name is Elvira Espinoza Ahumada, the psychologist behind ""Psychology on the Road""</h3> 
-         <h3 class="text-center"> 
+        <h2 class="mb-3 text-center">Welcome!</h2>
+        <h3 class="lead mb-3 text-center">
+            My name is Elvira Espinoza Ahumada, the psychologist behind ""Psicologa en Ruta""</h3> 
+         <h3 class="lead mb-3 text-center"> 
             My objective focuses on three aspects; offer you a safe and compassionate space where you can explore your emotions and heal all your wounds, 
             also provide you with support during emigration processes and finally, overcome the loss of a child during pregnancy, 
             an experience that I have personally faced. I am here to accompany you on your path to emotional well-being and personal growth, 
@@ -24,7 +25,7 @@
     <div class="container-fluid">
         <div>
             {% if not user.is_authenticated %}
-            <p class="text-center m-3 signup"><a href="{% url 'services' %}" class="btn btn-outline-primary">Read more about me!</a></p>
+            <p class="text-center m-3 signup"><a href="{% url 'services' %}" class="btn btn-outline-custom">Read more about me!</a></p>
             {% endif %}
         </div>
     </div>

@@ -6,17 +6,17 @@
     <h1 class="text-center p-2 d-block">About me</h1>
 </div>
 
-<div class="container mt-5">
+<div class="container mt-5 mb-5 justify-text">
     <div class="row">
-        <div class="col-12 col-md-4 text-center">
-            <img src="{% static 'images/about_image.jpg' %}" width="85%" class="profile-image" alt="profile-image">
+        <div class="col-12 col-md-4 text-center mb-4 mb-md-0">
+            <img src="{% static 'images/about_image.jpg' %}" class="profile-image" alt="profile-image">
         </div>
         <div class="col-12 col-md-8">
-            <h2>My Mission</h2>
-            <p>My mission at Psicología en Ruta is to provide you with a welcoming space where you feel comfortable to share your emotions and concerns. 
+            <h2 class="mb-3">My Mission</h2>
+            <p class="mb-3">My mission at Psicología en Ruta is to provide you with a welcoming space where you feel comfortable to share your emotions and concerns. 
                 I am committed to accompanying you on your journey toward emotional well-being and self-discovery, 
                 offering you personalized guidance and support every step of the way.</p>
-            <h2>My Vision</h2>
+            <h2 class="mb-3">My Vision</h2>
             <p>I aspire to create a world where all people, regardless of their geographic location,
                 have access to quality emotional and spiritual support that allows them to live full and meaningful lives. 
                 I want to be a trusted guide on the path to emotional well-being, providing personalized and effective services 
@@ -26,12 +26,14 @@
 </div>
 
 <div>
-    <h1 class="text-center p-2 d-block">Our services</h1>
+    <h1 class="text-center p-2 d-block">Services</h1>
 </div>
 
-<div class="container d-flex flex-row flex-wrap justify-content-center">
+<div class="container d-flex flex-row flex-wrap justify-content-center justify-text mb-5">
     {% for service in services %} 
-    <div class="card m-3">
+    <div class="card m-3 .justify-text {
+    text-align: justify;
+}">
         <div> 
             <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
             <!-- Use object-fit: cover to ensure the image covers the container without distortion -->
@@ -48,9 +50,9 @@
     <div>
         {% if user.is_authenticated %}
             <h3>Dreams are bigger than fears!</h3>
-            <p class="text-center m-3 signup"><a href="{% url 'booking_add' %}" class="btn btn-outline-primary w-50 mb-2 align-self-center">Book your appointment here!</a></p>
+            <p class="text-center m-3 signup"><a href="{% url 'booking_add' %}" class="btn btn-outline-custom w-50 mb-2 align-self-center">Book your appointment here!</a></p>
         {% else %}
-        <p class="text-center m-3 signup"><a href="{% url 'account_login' %}" class="btn btn-outline-primary w-50 mb-2 align-self-center">To book an appointment with me please sign in here!</a></p>
+        <p class="text-center m-3 signup"><a href="{% url 'account_login' %}" class="btn btn-outline-custom w-50 mb-2 align-self-center">To book an appointment with me please sign in here!</a></p>
             
         {% endif %}
     </div>

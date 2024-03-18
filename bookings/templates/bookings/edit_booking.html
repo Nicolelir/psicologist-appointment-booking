@@ -28,18 +28,13 @@
            
             </div>
         </div>
-        <button type="submit" class="btn btn-custom booking-btn">Save</button>
+        <button type="submit" class="btn btn-custom w-50 mb-2 align-self-center">Save</button>
     </form>
 </div>
 
-<div class="message-box">
-    {% for message in messages %}
-        {{ message|safe }}
-    {% endfor %}
-</div>
-</div>
+
 
 <div>
-    <a href="{% url 'bookings' %}" class="my-4" title="Make a Booking">My bookings</a>
+    <a href="{% url 'bookings' %}" class="btn btn-outline-custom w-50 mb-2 align-self-center" title="Make a Booking">My appointments</a>
 </div>
 {% endblock %}
