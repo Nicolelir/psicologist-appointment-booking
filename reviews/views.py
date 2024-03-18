@@ -14,8 +14,7 @@ class ReviewPage(ListView):
     template_name = 'reviews/reviews.html'  
     context_object_name = 'reviews' 
 
-
-class AddReview(LoginRequiredMixin, CreateView):
+class AddReview(CreateView):
     """
     A view to create a review
     """
@@ -24,37 +23,11 @@ class AddReview(LoginRequiredMixin, CreateView):
     form_class = ReviewForm
     success_url = reverse_lazy('reviews')  # Use reverse_lazy for success_url
 
-
     def form_valid(self, form):
         # Set the author of the review to the current user
         form.instance.author = self.request.user
         # Save the review instance
         response = super().form_valid(form)
-        # Check if the review is approved or awaiting approval
-        if form.instance.status == 0:
-            messages.info(self.request, 'Your review is awaiting approval.')
-        else:
-            messages.success(self.request, 'Review added successfully.')
+        # Display success message
+        messages.success(self.request, 'Review added successfully.')
         return response
-
-    def get_form_kwargs(self):
-        # Pass the request user to the form
-        kwargs = super().get_form_kwargs()
-        kwargs['request'] = self.request
-        return kwargs
-
-def reviews(request):
-    reviews = Review.objects.all()
-    return render(request, 'reviews/reviews.html', {'reviews': reviews})
-
-def add_review(request):
-    if request.method == 'POST':
-        form = ReviewForm(request.POST)
-        if form.is_valid():
-            review = form.save(commit=False)
-            review.author = request.user
-            review.save()
-            return redirect('reviews')  # Redirect to the reviews page after adding the review
-    else:
-        form = ReviewForm()
-    return render(request, 'add_review.html', {'form': form})
