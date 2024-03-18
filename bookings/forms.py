@@ -13,10 +13,12 @@ class BookingForm(forms.ModelForm):
           self.fields['email'].initial = user.email
         self.fields['first_name'].required = True
         self.fields['last_name'].required = True
+        self.fields['service'].required = True
         self.fields['date'].required = True
 
         self.fields['first_name'].label = "First Name"
         self.fields['last_name'].label = "Last Name"
+        self.fields['service'].label = "Service"
         self.fields['date'].widget = forms.DateInput(attrs={'type': 'date'})
 
     def clean(self):
@@ -32,7 +34,7 @@ class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
         fields = [
-            'first_name', 'last_name', 'email', 'date', 'time'
+            'first_name', 'last_name', 'email', 'service', 'date', 'time'
         ]
 
     
