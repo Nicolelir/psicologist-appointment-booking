@@ -6,6 +6,7 @@ from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
+
 class Services(models.Model):
     title = models.CharField(max_length=200)
     description = RichTextField(max_length=10000, null=False, blank=False)
