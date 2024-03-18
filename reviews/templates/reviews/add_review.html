@@ -5,24 +5,17 @@
 
 {% block content %}
 
-
-<div class="container d-flex flex-row flex-wrap justify-content-center">
-    <div class="rev m-3">
-        <div class="rev-body">
-            <h1 class="text-center mb-4">Leave a Review</h1>
-            <form method="post" class="review-form rev-text">
-                {% csrf_token %}
-                {% crispy form %}
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-            <div class="message-box mt-4">
-                {% for message in messages %}
-                    <div class="alert alert-{{ message.tags }}">
-                        {{ message|safe }}
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
-    </div>
-</div>
+<ul>
+    {% for review in reviews %}
+        <li>
+            <strong>{{ review.author }}</strong> - {{ review.created_on|date:"D, d M Y" }}
+            <br>
+            Service: {{ review.service }}
+            <br>
+            Rating: {{ review.rating }}
+            <br>
+            {{ review.text }}
+        </li>
+    {% endfor %}
+</ul>
 {% endblock %}
