@@ -298,6 +298,7 @@ p.booking {
         unicode-bidi: bidi-override;
         direction: rtl;
         display: inline-block;
+        color:yellow;
     }
     
     .rating > span {
@@ -307,15 +308,7 @@ p.booking {
         font-size: 1.5em;
     }
     
-    .rating > span:before {
-        content: "\2605";
-        color: gold; /* Apply gold color for all stars */
-    }
-    
-    .rating > span:not(:first-child):before {
-        margin-right: 0.2em; /* Adjust spacing between stars if needed */
-    }
-    
+
     /* Adjust the number of stars based on the rating */
 .rating[data-rating="1"] > span:nth-child(n+2):before,
 .rating[data-rating="2"] > span:nth-child(n+3):before,

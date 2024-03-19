@@ -26,7 +26,7 @@ class Booking(models.Model):
     first_name = models.CharField(max_length=20, blank=True, null=True)
     last_name = models.CharField(max_length=20, blank=True, null=True)
     email = models.EmailField()
-    service = models.CharField(max_length=50, choices=SERVICES_TYPES, default="online_individual_therapy")
+    service = models.ForeignKey(Services, on_delete=models.CASCADE, related_name="booking",  default=1)
     date = models.DateField(default=datetime.now, blank=True)
     time = models.CharField(max_length=20, choices=TIME_CHOICES, default="09:00 - 10:00")
     notes = models.TextField(blank=True)

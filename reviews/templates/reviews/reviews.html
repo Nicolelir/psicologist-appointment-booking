@@ -29,10 +29,10 @@
                 <div class="col-12 col-sm-6 col-md-4 mb-4">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">Created on: {{ review.created_on }}</h5>
-                            <p class="card-service">service: {{ review.service}}</p>
+                            <h5 class="card-author">{{ review.author }}</h5>
+                            <p class="card-created-on">{{ review.created_on }}</p>
+                            <p class="card-service"><strong>service:</strong> {{ review.service}}</p>
                             <p class="card-text">{{ review.text }}</p>
-                            <p class="card-">Rating: {{ review.rating }}</p>
                             <div class="rating">
                               {% if review.rating == 1 %}
                                     <span>&#x2605;</span>

@@ -7,6 +7,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from cloudinary.models import CloudinaryField
 from bookings.models import Booking
 from services. models import Services
+from bookings. models import Booking
 
 # Create your models here.
 
@@ -19,6 +20,7 @@ class Review(models.Model):
     """
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
     service = models.ForeignKey(Services, on_delete=models.CASCADE, related_name="reviews",  default=1)
+    booking = models.ForeignKey(Booking, on_delete=models.CASCADE, related_name="booking",  default=1)
     created_on = models.DateTimeField(default=datetime.now)
     rating = models.IntegerField(choices=[(i, str(i)) for i in range(1, 6)], default=1)
     text = models.TextField()
