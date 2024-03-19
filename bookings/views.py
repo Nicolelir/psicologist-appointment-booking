@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.urls import reverse_lazy
 from django.utils import timezone
 from datetime import datetime
+from django.contrib.auth.decorators import login_required
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Booking
@@ -15,6 +16,10 @@ class BookingsPage(ListView):
     template_name = 'bookings/bookings.html'  
     context_object_name = 'bookings' 
 
+@login_required
+def my_bookings(request):
+    bookings = Booking.objects.filter(user=request.user)
+    return render(request, 'bookings.html', {'bookings': bookings})
 
 # LoginRequiredMixin: only authenticated users can access a particular view. If a user is not authenticated, they will be redirected to the login page.
 class AddBooking(LoginRequiredMixin, CreateView): 

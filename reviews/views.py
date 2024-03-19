@@ -2,12 +2,15 @@ from django.shortcuts import render, get_object_or_404
 from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy
 from django.views import generic, View
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib import messages
 from django.urls import reverse
 from .forms import ReviewForm
 from .models import Review
+from .models import Booking
 
 class ReviewPage(ListView):
     """View for displaying reviews"""
@@ -22,7 +25,25 @@ class ReviewPage(ListView):
             review.empty_stars = range(5 - review.rating)
         return context
         
-    # Ensure that the method is indented properly within the class
+  
+@login_required
+def add_review(request, booking_id):
+    booking = Booking.objects.get(id=booking_id)
+    if booking.user != request.user:
+        # User is not authorized to leave a review for this booking
+        return redirect('home')  # Redirect to home page or appropriate URL
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, user=request.user)
+        if form.is_valid():
+            review = form.save(commit=False)
+            review.booking = booking
+            review.author = request.user
+            review.save()
+            return redirect('bookings', booking_id=booking_id)  # Redirect to booking detail page
+    else:
+        form = ReviewForm(user=request.user)
+    return render(request, 'add_review.html', {'form': form})
+
 
 class AddReview(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """
