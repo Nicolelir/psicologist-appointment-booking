@@ -16,6 +16,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
         {% block extra_css %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css" integrity="sha512-SbiR/eusphKoMVVXysTKG/7VseWii+Y3FdHrt0EpKgpToZeemhqHeZeLWLhJutz/2ut2Vw1uQEj2MbRF+TVBUA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="{% static '/css/styles.css' %}">
         {% endblock extra_css %}
@@ -44,7 +45,7 @@
         {% endif %}
         </div>
 
-<!--fix later
+
         <div class="container">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
@@ -57,14 +58,14 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>-->
+        </div>
 
         {% block content %}
         {% endblock %}
   
     </main>
     
-    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/footer.js' %}"></script>
     <script
     src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -80,6 +81,7 @@
     integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s"
     crossorigin="anonymous"
     ></script>
+
 
     {% include 'includes/footer.html' %}
 </body>

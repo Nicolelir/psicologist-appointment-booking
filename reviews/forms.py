@@ -9,31 +9,17 @@ class ReviewForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
 
         if user:
-            self.fields['author'].initial = user
-            self.fields['author'].queryset = Review.objects.filter(author=user)
             self.fields['booking'].queryset = Booking.objects.filter(user=user)
-            self.fields['author'].required = True
-            self.fields['created_on'].required = True
-            self.fields['service'].required = True
-            self.fields['booking'].required = True
-            self.fields['rating'].required = True
-            self.fields['text'].required = True
 
-            self.fields['author'].label = "Author"
-            self.fields['created_on'].label = "Created on"
-            self.fields['booking'].label = "Booking"
-            self.fields['service'].label = "Service"
-            self.fields['rating'].label = "Rating"
-            self.fields['text'].label = "Text"
+        # Exclude author field manually
+        self.fields.pop('author', None)
 
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-        if not instance.author_id:
-            instance.author = self.initial['author']
-        if commit:
-            instance.save()
-        return instance
+    def clean_author(self):
+        author = self.cleaned_data.get('author')
+        if not author:
+            raise forms.ValidationError("Author field is required.")
+        return author
 
     class Meta:
         model = Review
-        fields = ['author', 'created_on', 'booking', 'service', 'rating', 'text']
+        fields = ['created_on', 'booking', 'service', 'rating', 'text']

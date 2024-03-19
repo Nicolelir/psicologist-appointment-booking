@@ -101,3 +101,5 @@ class DeleteBooking(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         messages.success(self.request, "Your booking has been deleted.")
 
         return super().delete(request, *args, **kwargs)
+
+

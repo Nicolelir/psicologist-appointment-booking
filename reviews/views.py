@@ -32,8 +32,9 @@ def add_review(request, booking_id):
     if booking.user != request.user:
         # User is not authorized to leave a review for this booking
         return redirect('home')  # Redirect to home page or appropriate URL
+
     if request.method == 'POST':
-        form = ReviewForm(request.POST, user=request.user)
+        form = ReviewForm(request.POST, user=request.user)  # Pass the user parameter to the form
         if form.is_valid():
             review = form.save(commit=False)
             review.booking = booking
@@ -41,7 +42,7 @@ def add_review(request, booking_id):
             review.save()
             return redirect('bookings', booking_id=booking_id)  # Redirect to booking detail page
     else:
-        form = ReviewForm(user=request.user)
+        form = ReviewForm(user=request.user)  # Pass the user parameter to the form
     return render(request, 'add_review.html', {'form': form})
 
 
