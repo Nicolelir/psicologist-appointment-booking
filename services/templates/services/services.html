@@ -31,9 +31,7 @@
 
 <div class="container d-flex flex-row flex-wrap justify-content-center justify-text mb-5">
     {% for service in services %} 
-    <div class="card m-3 .justify-text {
-    text-align: justify;
-}">
+    <div class="card m-3">
         <div> 
             <img src="{{ service.image.url }}" class="card-img-top" alt="{{ service.title }}">
             <!-- Use object-fit: cover to ensure the image covers the container without distortion -->

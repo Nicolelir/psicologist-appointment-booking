@@ -17,18 +17,16 @@
         </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link {% if url_name == 'booking_add' %}active{% endif %}" href="{% url 'booking_add' %}">Book An Appointment</a>
+            <a class="nav-link {% if url_name == 'booking_add' %}active{% endif %}" href="{% url 'booking_add' %}">Book an Appointment</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link {% if url_name == 'review_add' %}active{% endif %}" href="{% url 'review_add' %}">Reviews</a>
-          </li>
-         
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Hi {{ user.username }}
             </a>
+            
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item {% if url_name == 'bookings' %}active{% endif %}" href="{% url 'bookings' %}">Your bookings</a>
+              <a class="dropdown-item {% if url_name == 'review_add' %}active{% endif %}" href="{% url 'review_add' %}">Add a Review</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
             </div>
