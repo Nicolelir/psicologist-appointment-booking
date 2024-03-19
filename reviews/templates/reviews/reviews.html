@@ -30,9 +30,19 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Created on: {{ review.created_on }}</h5>
-                            <p class="card-text">service: {{ review.service}}</p>
-                            <p class="card-text">Rating: {{ review.rating }}</p>
+                            <p class="card-service">service: {{ review.service}}</p>
                             <p class="card-text">{{ review.text }}</p>
+                            <p class="card-">Rating: {{ review.rating }}</p>
+                            <div class="rating">
+                              {% if review.rating == 1 %}
+                                    <span>&#x2605;</span>
+                                {% else %}
+                                    {% for star in review.full_stars %}
+                                        <span>&#x2605;</span>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                          
                         </div>
                     </div>
                 </div>
@@ -41,29 +51,6 @@
             </div>
         </div>
     </div>
-    <!-- Site pagination code for page navigation from Django ListView -->
-    {% if is_paginated %}
-    <div class="justify-content-center">
-        <nav aria-label="Page navigation" class="mx-auto">
-            <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
-                <li class="page-item">
-                    <a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous">
-                        <img class="page-arrow" src="{% static 'icons/prev.png' %}" alt="previous">
-                    </a>
-                </li>
-                {% endif %}
-                {% if page_obj.has_next %}
-                <li class="page-item">
-                    <a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next">
-                        <img class="page-arrow" src="{% static 'icons/next.png' %}" alt="next">
-                    </a>
-                </li>
-                {% endif %}
-            </ul>
-        </nav>
-    </div>
-    {% endif %}
 </div>
 
 {% endblock %}

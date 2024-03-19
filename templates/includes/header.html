@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link {% if url_name == 'services' %}active{% endif %}" href="{% url 'services' %}">Services</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link {% if url_name == 'reviews' %}active{% endif %}" href="{% url 'reviews' %}">Reviews</a>
+        </li>
         {% if user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link {% if url_name == 'booking_add' %}active{% endif %}" href="{% url 'booking_add' %}">Book An Appointment</a>
@@ -19,9 +22,7 @@
           <li class="nav-item">
             <a class="nav-link {% if url_name == 'review_add' %}active{% endif %}" href="{% url 'review_add' %}">Reviews</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link {% if url_name == 'reviews' %}active{% endif %}" href="{% url 'reviews' %}">Reviews</a>
-          </li>
+         
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Hi {{ user.username }}

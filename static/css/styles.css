@@ -293,3 +293,34 @@ p.booking {
     .card {
         margin-bottom: 20px;
     }
+
+    .rating {
+        unicode-bidi: bidi-override;
+        direction: rtl;
+        display: inline-block;
+    }
+    
+    .rating > span {
+        display: inline-block;
+        position: relative;
+        width: 1.1em;
+        font-size: 1.5em;
+    }
+    
+    .rating > span:before {
+        content: "\2605";
+        color: gold; /* Apply gold color for all stars */
+    }
+    
+    .rating > span:not(:first-child):before {
+        margin-right: 0.2em; /* Adjust spacing between stars if needed */
+    }
+    
+    /* Adjust the number of stars based on the rating */
+.rating[data-rating="1"] > span:nth-child(n+2):before,
+.rating[data-rating="2"] > span:nth-child(n+3):before,
+.rating[data-rating="3"] > span:nth-child(n+4):before,
+.rating[data-rating="4"] > span:nth-child(n+5):before,
+.rating[data-rating="5"] > span:nth-child(n+6):before {
+    content: "\2606"; /* Display empty star for remaining stars */
+}
