@@ -273,7 +273,9 @@ p.booking {
     color:#9F417F;
     border-color: #9F417F; 
 }
-/*Reviews*/
+
+/*Media queries*/
+/*Homepage*/
 
 
 @media (min-width: 768px) {
@@ -286,4 +288,8 @@ p.booking {
         min-height: 30vh; 
     }
 }
+/*Reviews*/
 
+    .card {
+        margin-bottom: 20px;
+    }
