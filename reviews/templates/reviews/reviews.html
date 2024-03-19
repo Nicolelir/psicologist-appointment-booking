@@ -28,13 +28,13 @@
                 {% else %}
                 {% for review in reviews %}
                 <div class="col-12 col-sm-6 col-md-4 mb-4">
-                    <div class="card">
+                    <div class="card-rev border rounded h-100">
                         <div class="card-body">
                             <h5 class="card-author">{{ review.author }}</h5>
                             <p class="card-created-on">{{ review.created_on }}</p>
                             <p class="card-service"><strong>service:</strong> {{ review.service}}</p>
                             <p class="card-text">{{ review.text }}</p>
-                            <div class="rating">
+                            <div class="rating bordered-star">
                               {% if review.rating == 1 %}
                                     <span>&#x2605;</span>
                                 {% else %}
@@ -52,6 +52,19 @@
             </div>
         </div>
     </div>
+</div>
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV </a></li>
+        {% endif %}
+        {% if page_obj.has_next %}
+        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"> NEXT &raquo;</a></li>
+        {% endif %}
+    </ul>
+</nav>
+{% endif %}
 </div>
 
 {% endblock %}

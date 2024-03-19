@@ -4,7 +4,8 @@
 {% block content %}
 {% load crispy_forms_tags %}
 <div class="text-center">
-    <h1 class="text-center mx-auto section-title my-3" id="review">Leave a Review</h1>
+    <h1 class="text-center mx-auto section-title my-3" id="review">Post a Review</h1>
+    <p class="text-center mx-auto section-title my-3">Leaving a review of your experience might help others to see where therapy could help for them</p>
     <form method="post" class="text-center w-75 mx-auto booking-section">
         {% csrf_token %}
         <div class="row">
@@ -20,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <button type="submit" class="btn btn-custom w-25 mx-auto mb-4">Submit</button>
+        <button type="submit" class="btn btn-custom w-25 mx-auto mb-4 align-self-center">Submit</button>
     </form>
 </div>
 

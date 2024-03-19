@@ -72,8 +72,8 @@ class AddReview(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 class ReviewList(generic.ListView):
     """
-    A model to view the review cards, no more than 8 to a page
+    A model to view the review cards, no more than 6 to a page
     """
     model = Review
     template_name = 'reviews/reviews.html'
-    paginate_by = 8
+    paginate_by = 6

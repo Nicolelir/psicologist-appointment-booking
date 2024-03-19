@@ -60,8 +60,8 @@ main {
    
 
  
-.image{
-    min-height: 800px;
+.image .hero-image{
+    min-height: 400px;
     position: relative;
     background-attachment: fixed;
     background-position: center;
@@ -224,6 +224,9 @@ p.booking {
 .card {
     width: 18rem;
     margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
 }
 
 .card img {
@@ -272,6 +275,9 @@ p.booking {
 .btn-outline-custom{
     color:#9F417F;
     border-color: #9F417F; 
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); 
 }
 
 /*Media queries*/
@@ -290,17 +296,24 @@ p.booking {
 }
 /*Reviews*/
 
-    .card {
-        margin-bottom: 20px;
+    .card-rev {
+        width: 18rem;
+        margin: 10px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+        
     }
 
     .rating {
         unicode-bidi: bidi-override;
         direction: rtl;
         display: inline-block;
-        color:yellow;
+        color:orange;
+        
     }
     
+
     .rating > span {
         display: inline-block;
         position: relative;
