@@ -5,20 +5,21 @@ from .models import Contact
 
 def contact_form_view(request):
     if request.method == 'POST':
-        footer_form = FooterForm(request.POST)  
+        form = FooterForm(request.POST)  
         
-        if footer_form.is_valid():
+        if form.is_valid():
             # Save the form data to the database using Contact model
             Contact.objects.create(
-                name=footer_form.cleaned_data['name'],
-                email=footer_form.cleaned_data['email'],
-                query=footer_form.cleaned_data['message']
+                name=form.cleaned_data['name'],
+                email=form.cleaned_data['email'],
+                query=form.cleaned_data['query']
             )
-            return redirect('home')
+            return redirect('home:home')
     else:
-        footer_form = FooterForm() 
-
-    return render(request, 'includes/footer.html', {'footer_form': footer_form})
+        form = FooterForm() 
+    return render(request, 'includes/footer.html', {'form': form})
 
 def home_view(request):
+
+    form = FooterForm()
     return render(request, 'home/index.html')

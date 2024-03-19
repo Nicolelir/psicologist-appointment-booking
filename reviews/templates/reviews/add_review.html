@@ -10,25 +10,12 @@
         <div class="row">
             <div class="col m-4 mb-5">
                 <h4 class="text-center mb-3">Details</h4>
-                <div class="form-group">
-                    <label for="author">Author</label>
-                    {{ form.author|safe}}
-                </div>
-                <div class="form-group">
-                    <label for="service">Service</label>
-                    {{ form.service|safe }}
-                </div>
-                <div class="form-group">
-                    <label for="created_on">Date</label>
-                    {{ form.created_on|safe }}
-                </div>
-                <div class="form-group">
-                    <label for="rating">Rating</label>
-                    {{ form.rating|safe }}
-                </div>
-                <div class="form-group">
-                    <label for="text">Review</label>
-                    {{ form.text |safe}}
+             
+                    {{ form.author|as_crispy_field|safe}}
+                    {{ form.service|as_crispy_field|safe }}
+                    {{ form.created_on|as_crispy_field|safe}}
+                    {{ form.rating|as_crispy_field|safe}}
+                    {{ form.text |as_crispy_field|safe}}
                 </div>
             </div>
         </div>

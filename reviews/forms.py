@@ -7,22 +7,35 @@ class ReviewForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
+
+        # Set initial value of the author field to user's email if available
         if user:
-            self.fields['author'].initial = user.email  # Set initial value of the author field to user's email
+            self.fields['author'].initial = user.email
+
         self.fields['author'].required = True
         self.fields['created_on'].required = True
         self.fields['service'].required = True
+        self.fields['rating'].required = True
         self.fields['text'].required = True
 
         self.fields['author'].label = "Author"
         self.fields['created_on'].label = "Created on"
         self.fields['service'].label = "Service"
+        self.fields['rating'].label = "Rating"
         self.fields['text'].label = "Text"
+
+
+    def save(self, commit=True):
+        instance = super().save(commit=False)
+        if not instance.author_id:  # Ensure author is set only if not provided
+            instance.author = self.initial['user']
+        if commit:
+            instance.save()
+        return instance
 
     class Meta:
         model = Review
-        fields = ['author', 'created_on', 'service', 'text']
-
+        fields = ['author', 'created_on', 'service', 'rating', 'text']
 
 """
 class ReviewForm(forms.ModelForm):"""
