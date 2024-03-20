@@ -46,7 +46,7 @@ class AddBooking(LoginRequiredMixin, CreateView):
             form.add_error('date', 'Please enter a valid date')
             return self.form_invalid(form)
 
-        messages.success(self.request, "Thank you for booking an appointment")
+        messages.success(self.request, "Thank you for booking an appointment with me! Don't forget to leave a review after your session")
         return super().form_valid(form)
 
 # UserPassesTestMixin:This mixin allows to define custom permission checks for a view. 

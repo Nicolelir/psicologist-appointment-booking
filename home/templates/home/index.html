@@ -37,11 +37,11 @@
             <!-- Contact Form Column -->
             <div class="d-flex justify-content-center align-items-center">
                 <div class="container mt-3 mb-3 justify-text">
-                    <h3 class="mb-3 text-center contact-form">Contact me</h3>
+                    <h3 class="mb-3 text-center contact-form titles">Contact me</h3>
                     <form action="{% url 'home:contact_form' %}" method="post">
                         {% csrf_token %}
                         {{ form|crispy|safe }}
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-outline-custom">Submit</button>
                     </form>
                 </div>
             </div>

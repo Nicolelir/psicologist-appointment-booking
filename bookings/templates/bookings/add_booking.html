@@ -8,7 +8,7 @@
 
 {% load crispy_forms_tags %}
 <div class="text-center">
-    <h1 class="text-center mx-auto section-title my-3" id="booking">Book an appointment</h1>
+    <h1 class="text-center mx-auto titles my-3" id="booking">Book an appointment</h1>
     <form method="post" class="text-center w-75 mx-auto booking-section">
         {% csrf_token %}
         <div class="row">
@@ -26,15 +26,17 @@
                 {{ form.time|as_crispy_field|safe  }}
             </div>
         </div>
-        <button type="submit" class="btn btn-custom w-25 mx-auto mb-4">Save</button>
+        <button type="submit" class="btn btn-outline-custom w-25 mx-auto mb-4">Save</button>
     </form>
 </div>
 
 <div class="d-flex justify-content-center align-items-center">
     {% if request.user.is_authenticated %}
-    <a href="{% url 'bookings' %}" class="btn btn-outline-custom w-50 mb-2 align-self-center" title="Make a Booking">Your appointments</a>
+    <a href="{% url 'bookings' %}" class="btn w-50 mb-2 align-self-center" title="Make a Booking"><img src="{% static '../static/icons/booking.png' %}"
+        alt="Make a booking" class="icon-review-btn"></a>
+   
     {% else %}
-    <p class="text-center w-25  m-2 signup  align-self-center"><a href="{% url 'account_login' %}" class="btn btn-custom p-2 px-4 mb-4">To book an appointment with me or leave a review please sign in here!</a></p>
+    <p class="text-center w-50 m-2 signup  align-self-center"><a href="{% url 'account_login' %}" class="btn btn-outline-custom p-2 px-4 mb-4">To book an appointment with me or leave a review please sign in here!</a></p>
 </div>
 
 {% endif %}

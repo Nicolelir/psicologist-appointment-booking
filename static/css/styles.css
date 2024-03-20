@@ -57,6 +57,17 @@ main {
     text-align: justify;
 }
 
+.titles{
+  
+    font-family: var(--title);
+    font-weight: 400;
+    font-size: xx-large;
+    display: inline-block;
+    border-bottom: 3px solid var(--green);
+    line-height: 3rem;
+    padding-top: 30px;
+   
+}
 /* Homepage */
 .image {
     min-height: 400px; /* Adjust as needed */
@@ -69,15 +80,6 @@ main {
 }
 
 /* Footer */
-
-hr{
-    height: 3px; /* Adjust the height to make it thicker */
-    width: 70%; /* Adjust the width to make it shorter */
-    margin: 20px auto; /* Center the horizontal rule */
-    background-color: white; /* Change the color to your desired style */
-    border: none;
-}
-
 
 
 .contact-container {
@@ -107,10 +109,10 @@ hr{
     }
 }
 .footer{
-   
-    color: var(--brown);
+    border-top: 1px solid var(--brown); 
 }
-.pink-icon li a i {
+
+.green-icon li a i {
     width: 40px;
     height: 40px;
     line-height: 40px; 
@@ -144,7 +146,9 @@ hr{
 .navbar-nav .nav-link {
     margin-left: 5px; 
     font-size: 15px;
+   
 }
+
 
 .nav-title-psicologa {
     font-size: 15px;
@@ -173,14 +177,12 @@ hr{
 .brand-link span {
     font-weight: bold; /* Optionally make the span text bold */
 }
-.navbar-brand{
-    margin-right: 0;
-    padding: 0;
 
-}
 
 #navbarNav {
     background-color: var(--white);
+    border-bottom: 1px solid var(--brown); 
+    padding-top: 10px;
 }
 
 a.nav-link  {
@@ -236,6 +238,29 @@ p.booking {
     text-align: center;
     
 }
+
+.icon-booking-btn {
+    display: inline-block;
+    border: none;
+    height: 35px;
+    width: 35px;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+}
+
+.icon-review-btn{
+    display: inline-block;
+    border: none;
+    height: 100px;
+    width: 100px;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+
 
 /*Services*/
 
@@ -335,4 +360,8 @@ p.booking {
 .rating[data-rating="5"] > span:nth-child(n+6):before {
     content: "\2606"; /* Display empty star for remaining stars */
 }
-
+ /* Log in */
+ .title-login{
+font-family: var(--title);
+padding-top: 30px;
+ }
