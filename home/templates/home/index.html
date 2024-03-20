@@ -3,6 +3,7 @@
 
 
 {% block content %}
+{% load crispy_forms_tags %}
 <!-- Main content -->
 
 <div class="image">
@@ -21,6 +22,7 @@
             wherever you are in the world.</h3>
     </div>
 
+ 
 
     <div class="container-fluid">
         <div>
@@ -30,6 +32,41 @@
         </div>
     </div>
 
-
-
+    
+        
+            <!-- Contact Form Column -->
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="container mt-3 mb-3 justify-text">
+                    <h3 class="mb-3 text-center contact-form">Contact me</h3>
+                    <form action="{% url 'home:contact_form' %}" method="post">
+                        {% csrf_token %}
+                        {{ form|crispy|safe }}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Contact Info Column -->
+            <div class="contact-container d-flex justify-content-center align-items-center">
+                <div class="contact-info">
+                    <i class="fa fa-map-marker green-icon" aria-hidden="true"></i>
+                    <span>123 Main Street, City, Country</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fa fa-envelope green-icon" aria-hidden="true"></i>
+                    <span>example@example.com</span>
+                </div>
+                <div class="contact-info">
+                    <i class="fa fa-phone green-icon" aria-hidden="true"></i>
+                    <span>+1234567890</span>
+                </div>
+            </div>
+      
+    
+                   
+           
+       
 {% endblock %}
+
+
+

@@ -1,60 +1,17 @@
 {% load static %}
-{% load crispy_forms_tags %}
-
-<footer>
-    
-    <section class="container-fluid" id="contact-container">
-        <div class="row">
-            <div class="col-12 col-md-6 text-center" id="contact-container-elements">
-                <h3 class="contact-heading text-center ">Contact Info</h3>
-                <hr>
-                <div class="contact-info ">
-                    <div class="text-box">
-                        <p class="contact-label"><i class="fas fa-map-marker-alt pink-icon"></i> <span class="contact-text">18 The Fairways, Bracken Ct, Donnybrook, Cork, T12 P7YY</span></p>
-                </div>
-                <div class="text-box ">
-                    <p class="contact-label"><i class="fa-solid fa-envelope pink-icon"></i> <span class="contact-text">elviraespinoza.contact@gmail.com</span></p>
-                </div>
-                <div class="text-box ">
-                    <p class="contact-label"><i class="fas fa-phone-alt pink-icon"></i> <span class="contact-text">+569 2222222</span></p>
-                    </div>
-
-                    <div class="row-sm-4 pink-icon">
-                    <ul class="list-inline pink-icon">
-                        <li class="list-inline-item"> <a target="_blank"
-                                href="https://www.linkedin.com/in/elvira-espinoza-ahumada-74a6a82a/?originalSubdomain=cl">
-                                <i class="fa fa-linkedin pink-icon" aria-hidden="true"></i>
-                                <span class="sr-only">LinkedIn</span>
-                            </a></li>
-                        <li class="list-inline-item" pink-icon> <a target="_blank"
-                                href="https://twitter.com/">
-                                <i class="fa-brands fa-x-twitter pink-icon" aria-hidden="true"></i>
-                                <span class="sr-only">Twitter</span>
-                            </a></li>
-                    </ul>
-                </div>
-                
-            </div>
-            </div>
-           
-                    <div class="col-12 col-md-6 d-flex justify-content-center align-items-center" id="info-container-elements">
-<!--
-                        <form method="post"">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <button type="submit">Submit</button>
-                        </form>
-                    </div>
--->
-                </div>
-            </div>
-    </section>
 
 
-    <section class="container-fluid copyright" id="copyright-container">
-
+<footer class="footer mt-auto py-3">
+    <p class="m-0 text-center">
         {% block copyright %}
-            <p class="copyright-section text-center">&copy;2024 - Made by Nicole Rojas </p>
+        &copy;2024 - Made by Nicole Rojas
         {% endblock copyright %}
-</section>
+    </p>
+    <p class="m-0 text-center">Follow me: 
+        <a target="_blank" href="https://www.linkedin.com/in/elvira-espinoza-ahumada-74a6a82a/?originalSubdomain=cl">
+            <i class="fab fa-linkedin ms-3 green-icon"></i><span class="sr-only">LinkedIn</span></a>
+        <a target="_blank" href="https://twitter.com/">
+            <i class="fab fa-twitter ms-3 green-icon"></i><span class="sr-only">Twitter</span></a>
+    </p>
 </footer>
+

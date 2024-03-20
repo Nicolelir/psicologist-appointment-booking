@@ -9,18 +9,17 @@
         <a class="navbar-brand" href="#">
           <img src="{% static 'images/logo5.png' %}" alt="Elvi Logo" class="logo">
         </a>
-        <a class="elvi" href="{% url 'home:home' %}" class="brand-link {% if url_name == 'home' %}active{% endif %}">
+        <a class="elvi brand-link {% if url_name == 'home' %}active{% endif %}" href="{% url 'home:home' %}">
           <span class="nav-title-elvi">ELVI</span><span class="nav-title-psicologa" style="color: forestgreen;">Psicologa en Ruta</span>
         </a>
       </div>
       <!-- Toggler button for small screens -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+      <button class="navbar-toggler btn-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon custom-toggler-icon"></span>
       </button>
       <!-- Navbar links -->
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto"> <!-- Adjusted to push logo to the left and links to the right -->
-         
           <li class="nav-item">
             <a class="nav-link {% if url_name == 'services' %}active{% endif %}" href="{% url 'services' %}">Services</a>
           </li>
@@ -44,7 +43,7 @@
             </li>
           {% else %}
             <li class="nav-item">
-              <a class="nav-link {% if url_name == 'accounts_login' %}active{% endif %}" href="{% url 'booking_add' %}">Sign In</a>
+              <a class="nav-link {% if url_name == 'accounts_login' %}active{% endif %}" href="{% url 'account_login' %}">Sign In</a>
             </li>
           {% endif %}
         </ul>

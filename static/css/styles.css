@@ -22,6 +22,7 @@
     --pink: #9F417F;
     --dark: #253439;
     --brown:#CD853F;
+    --green:forestgreen;
 
     /* Utils */
    --small-box-shadow: 1px -1px 9px 0 #00000061;
@@ -38,7 +39,7 @@ body {
     min-height: 100vh;
     font-family: var(--main-font);
     color: var(--dark);
-    background-color: var(--white);
+    background-color: var(--off-white);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,15 +69,6 @@ main {
 }
 
 /* Footer */
-footer {
-    flex-shrink: 0;
-    color:white;
-    display: flex;
-    flex-direction: column; /* Stack the sections vertically */
-    align-items: center;
-    border-top: var(--border);
-    font-size: 1rem;
-}
 
 hr{
     height: 3px; /* Adjust the height to make it thicker */
@@ -86,42 +78,38 @@ hr{
     border: none;
 }
 
-#contact-container-elements,
-#info-container-elements {
-    background-color:	#CD853F;
-    padding-top: 15px;
-    padding-bottom: 20px;
+
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .contact-info {
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 20px; /* Adjust spacing between items */
 }
 
-.contact-label {
-    margin-left: 10px; 
-    margin-top: 20px;
+.contact-info i {
+    margin-right: 10px; /* Adjust as needed */
+    
 }
 
-.text-box {
-    margin-bottom: 5px; 
+.contact-info span {
+    font-size: 16px; /* Adjust as needed */
 }
 
-
-.copyright {
-    background-color: forestgreen;
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
+/* Media query for larger screens */
+@media screen and (min-width: 768px) {
+    .contact-info {
+        flex: 1; /* Each item takes equal space */
+    }
 }
-
-#copyright-container {
-    padding: 3px; 
+.footer{
+   
+    color: var(--brown);
 }
-
-.copyright-section {
-    margin-bottom: 0; 
-}
-
 .pink-icon li a i {
     width: 40px;
     height: 40px;
@@ -139,8 +127,7 @@ hr{
     color: white;
 }
 
-.pink-icon  {
-
+.green-icon  {
     color: forestgreen;
     margin-bottom: 0;
 }
@@ -151,21 +138,22 @@ hr{
     text-decoration: none; /* Remove underline from link */
     margin-right: 20px;
     color: forestgreen;
+    
 }
 
 .navbar-nav .nav-link {
-    margin-left: 20px; 
-    font-size: 20px;
+    margin-left: 5px; 
+    font-size: 15px;
 }
 
 .nav-title-psicologa {
-    font-size: 20px;
+    font-size: 15px;
     font-family: "Beau Rivage", cursive;
     font-style: normal;
 }
 
 .elvi {
-    font-size: 25px;
+    font-size: 15px;
 }
 
 .nav-title-elvi {
@@ -187,7 +175,7 @@ hr{
 }
 .navbar-brand{
     margin-right: 0;
-    padding: 0 1em
+    padding: 0;
 
 }
 
@@ -203,7 +191,7 @@ a.nav-link  {
 }
 
 img.logo {
-    width: 7rem;
+    width: 4rem;
     margin-top: 20px;
     
 }
@@ -224,8 +212,8 @@ img.logo {
 }
 
 .custom-toggler{
-    background-color:  #9F417F;
-    border-color:  #9F417F;
+    background-color:  var(--green);
+    border-color:  var(--green);
     color:white;
 }
 
@@ -238,7 +226,7 @@ p.booking {
 
 .booking {
     color: white;
-    background-color:   #9F417F;
+    background-color: #9F417F;
     padding: 10px;
     font-size: 16px;
     
@@ -282,22 +270,12 @@ p.booking {
     margin-bottom: 1rem;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #007bff;
-    border-color: #007bff;
-}
 
-.btn-primary:hover {
-    color: #fff;
-    background-color: #0056b3;
-    border-color: #0056b3;
-}
 
 .btn-custom {
-    background-color: #9F417F;
+    background-color: var(--green);
     color: white;
-    border-color: #9F417F; 
+    border-color: var(--green); 
     padding: 0.375rem 0.75rem; /* Adjust padding as needed */
     margin-right: 15px; /* Adjust margin as needed */
   }
@@ -307,8 +285,8 @@ p.booking {
   }
   
 .btn-outline-custom{
-    color:#9F417F;
-    border-color: #9F417F; 
+    color:var(--green);
+    border-color: var(--green); 
     background-color: #f0f0f0;
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); 
@@ -357,3 +335,4 @@ p.booking {
 .rating[data-rating="5"] > span:nth-child(n+6):before {
     content: "\2606"; /* Display empty star for remaining stars */
 }
+

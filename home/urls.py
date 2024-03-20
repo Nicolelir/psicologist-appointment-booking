@@ -5,7 +5,7 @@ app_name = 'home'
 
 urlpatterns = [
     path('', home_view, name='home'),
-    #path('footer/', contact_form_view, name='contact_form_view'),
-
+     path('contact/', contact_form_view, name='contact_form'), 
+    
    
 ]
