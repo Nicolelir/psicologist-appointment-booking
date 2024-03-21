@@ -50,8 +50,9 @@ h1, h2, h3, h4, h5, h6 {
 
 main {
     flex: 1 0 auto;
-    background-color: var(--white);
+    background-color: var(--off-white);
 }
+
 
 .justify-text {
     text-align: justify;
@@ -70,8 +71,9 @@ main {
 }
 /* Homepage */
 .image {
-    min-height: 400px; /* Adjust as needed */
+    min-height: 400px; 
     position: relative;
+    
 }
 
 .hero-image {
@@ -90,16 +92,16 @@ main {
 .contact-info {
     display: flex;
     align-items: center;
-    margin-right: 20px; /* Adjust spacing between items */
+    margin-right: 20px;
 }
 
 .contact-info i {
-    margin-right: 10px; /* Adjust as needed */
+    margin-right: 10px; 
     
 }
 
 .contact-info span {
-    font-size: 16px; /* Adjust as needed */
+    font-size: 16px; 
 }
 
 /* Media query for larger screens */

@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.paginator import Paginator
 from django.contrib import messages
 from django.urls import reverse
 from .forms import ReviewForm
@@ -54,7 +55,7 @@ class AddReview(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Review
     form_class = ReviewForm
     success_url = reverse_lazy('reviews')  # Use reverse_lazy for success_url
-    success_message = "Review added successfully."
+
 
     def form_valid(self, form):
         # Set the author of the review to the current user
@@ -77,3 +78,8 @@ class ReviewList(generic.ListView):
     model = Review
     template_name = 'reviews/reviews.html'
     paginate_by = 6
+
+    def get_queryset(self):
+        return Review.objects.all()
+
+   
