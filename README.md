@@ -1,4 +1,4 @@
-# <p style="text-align: center;">Elvira Espinoxa Ahumada</p>
+# <p style="text-align: center;">Elvira Espinoza Ahumada</p>
 
 
 ![Logo]()
@@ -17,16 +17,52 @@
 - [Deployment](#deployment)
 - [Credits](#credits)
 
-## User Experience (UX)
+# User Experience (UX)
+The goal of this website is to create a user-friendly platform where users can get information about Elvira, her specialties, treatment approaches, and contact details.This helps potential clients understand the therapist's expertise and decide if they are the right fit. At the same time, the site serve as a marketing tool to attract new clients thanks to the reviews that users can post, demonstrating the therapist's expertise and highlight their success stories.
 
-The site’s users want to play an online game that has elements of chance.
-The site’s goal is to provide a challenging game with increasing levels of difficulty to entertain online users. 
+## Project Goals
 
-### Project Goals
+## Agile Methodology
+This project was created using Agile principles via a projectboard on Github, where I was able to select which features were still to do, which features were in progress whilst being worked on, and which features met the definition of done. Labels were added to sort the issues based on the importance.
+About the user stories, I created based on a Template, which acted as the skeleton for creating new user stories. Each user story would follow the convention:
 
-#### Agile Methodology
+**As a (role) I can (capability) so that (received_benefit)**
 
-#### User stories 
+with their respective "Acceptance Criteria" which would need to be met in order for the User Story issue to be marked as Done. The acceptance criteria was very helpful to ensure all necessary tasks were completed, helping me to organise and prioritise my workflow. This has been essential due to the very limited timeframe we had to complete this project.
+
+![img]()
+
+
+## User stories 
+
+### Epics
+
+- User registration and log in
+- Home Page (Contact Form)
+- Services 
+- Booking appointments, edit and delete them
+- Post a review 
+- Admin Panel 
+- Maintain consistent design with responsiveness in mind
+
+
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------------|-------------|
+|  #1 |As a **User** I can **click on the About/services link** so that I can **read about the specialist and the services ofered**|**MUST HAVE**|
+|  #2 |As a **visitor to the psychologist's website**  I want **to easily navigate to the page ** so that **I can have clear idea about the content and the booking system**|**MUST HAVE**|
+|  #3 |As a **Admin** I can **update the about page content** so that **it is available on the site**|**COULD HAVE**|
+|  #4 |As a **first-time user** I want to **create a new account** so it **can facilitate future bookings and leave a review**|**MUST HAVE**|
+|  #5 |As a **registered user** I want to **log in with my credentials** so that **so I can access to my account.**|**MUST HAVE**|
+|  #6 |As a  **user** I want **to see the availability of the psychologist ** so that **I can choose and book a convenient time slot**|**MUST HAVE**|
+|  #7 |As a **user** I want to **see my booking list ** so that **I can reschedule an appointment**|**SHOULD HAVE**|
+|  #8 |As a **user** I want to **see my booking list ** so that **I can delete an appointment**|**MUST HAVE**|
+|  #9 |As a **user** I can **fill in a contact form** so that **I can submit a request for the specialist**|**MUST HAVE**|
+|  #10 |As a **site user ** I can **view a paginated list of reviews ** so that **I can select which review I want to view**|**MUST HAVE**|
+|  #11 |As a **user** I can **create reviews** so that **other users can read about other user’s experience**|**MUST HAVE**|
+|  #12 |As a user I can **click on a review ** so that I can read the full text if it is a very long text**|**COULD HAVE**|
+|  #13 |As a **Site Admin using the booking system** I want **to have a dashboard ** so that **I can manage my availability, view upcoming appointments, and block off time slots.**|**COULD HAVE**|
+|  #14 |As a **site admin** I can **approve or delete reviews** so that **I can filter out objectionable reviews and manage my website content**||**MUST HAVE**|
+
 
 ### First time user
 
@@ -36,36 +72,107 @@ The site’s goal is to provide a challenging game with increasing levels of dif
 
 ## Design
 
+### Color Scheme
+
+The colours were selected with the intention of complementing the colors of the logo, in a mix of green and brown. 
+
 ### Wireframes
 Were created using Balsamiq. The sections below show individual wireframes for different devices:
 
-- Desktop layout
+- Home Page
 
 ![img]()
 
-- Tablet layout
+- About/Services
 
 ![img]()
 
-- Smartphone layout
+- Book an appointment
 
 ![img]()
+
+- Post a review
+![img]()
+
+- List of R=rerviews 
 
 ### Database Scheme
+Entity Relationship Diagrams (ERD) help the developer to make connections between databases and information. Creating an ERD helped me understand how the tables relate to one another and their connection with PostgreSQL Database. I used LucidChart to create the diagram and the arrow represent how the data fields relate to one another.
+
+My booking model and part of the design of my website was inspired  by the blog walkthrough by the Code Institute and the [FreeFido](https://github.com/amylour/FreeFido_v2) and the [thebookbooth1](https://github.com/hiboibrahim/thebookbooth1) projects during my learning of Django. They helped me to get a good and secure grasp of the templating structure and connected Python files to push my features further, make them my own and then develop my Review and Contact Models.
 
 ### CRUD
 CRUD functionality was implemented in both booking courses and commenting where:
 
 - Create: An authenticated user can create a booking or leaving a comment.
-
 - Read: A user can read the course information and comments .
-
 - Update: An authenticated user can edit and update their own booked courses or comments.
-
 - Delete: An authenticated user can delete their own booked courses or comments.
+
+In this proyect the feature "booking" has full CRUD functionality available whilst "reviews" allows users to CREATE and READ only. I felt unneccessary to add the option of UPDATE or DELETE a review since...............................Post can be deleted form Admin Panel. 
 
 ### Data Models
 
+1. AllAuth User Model
+- Django Allauth, the User model is the default user model provided by the Django authentication system
+- The user can only post a review after having booked an appointment and only leave on review per booking date. 
+
+| User|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| username |  CharField|
+| email|  EmailField   |   
+| password | CharField | 
+
+2. Booking Model 
+- A User can have multiple Bookings, but each Booking is associated with only one User. This is represented by the foreign key relationship between User and Booking.
+- Full CRUD functionality is available to the user.
+
+| Booking|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| first_name |  CharField   |   FK |
+| last_name | CharField |  FK    |
+| email |  EmailField | FK |
+| service|  CharField   |   FK |
+| day | DateTime(unique) |    |
+| time |  DateTime(unique) |  |
+| notes |  TextField |  |
+
+3. Review Model
+- Each user can post one review after booking an appointment. This is represented by the foreign key relationship between User and Review.
+- Users can leave a review according to the service they booked. This is represented by the foreign key relationship between Service and Review.
+
+| Review|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| author |  CharField   |   FK |
+| service|  CharField   |   FK |
+| created_on | DateTime(unique) | 
+| rating| Positive int Field, max=5, min=o   |   
+| notes |  RichTextField |  |
+
+4. Service Model 
+- The service model is related with the Booking model and the Review model, users can select a service at the momoent of booking an appointment 
+- Users can post a review based in the type of service received (Online consultation, Individual or family therapy and workshops)
+
+| Service|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| title |  CharField   |   FK |
+| description|  TextField   |
+| image | CloudinaryField | 
+
+5. Contact Model 
+- This model recieves the post requests and saves the data in the database, represented by the foreign key relationship between User and contact form. 
+
+| Contact|            |   |
+|----------|:-------------:|------:|
+| id |  AutoField | PK|
+| name |  CharField   |   FK |
+| email|  EmailField   |   
+| query |RichTextField| 
+| read|BooleanField  |   
 
 #### Allauth User Model
 The User model was built using Django's Allauth library
@@ -118,17 +225,20 @@ css file which are used on all pages of the project.
 ## Features
 (Part of the base html)
 
-### Nav Menu
+### Nav Menu 
 
 ![]()
 
 ### Footer
+Links in the footer redirect to respective social media pages.
 
 ![]()
 
 ---------------
 
 ### Sign Up Page
+
+Registration allows users to book and appointment with the therapist and also post a review after their booking. 
 
 ![]()
 
@@ -172,16 +282,6 @@ css file which are used on all pages of the project.
 ![]()
 
 ### Add a review
-
-
-![]()
-
-### Edit reviews
-
-
- ![]()
-
-### Delete reviews
 
 
 ![]()
