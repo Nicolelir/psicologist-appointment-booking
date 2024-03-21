@@ -1,6 +1,5 @@
 from django import forms
-from .models import Review, Booking
-
+from .models import Review, Booking, Services
 class ReviewForm(forms.ModelForm):
     """A form to add a review"""
 
@@ -10,7 +9,8 @@ class ReviewForm(forms.ModelForm):
 
         if user:
             self.fields['booking'].queryset = Booking.objects.filter(user=user)
-
+            
+    
         # Exclude author field manually
         self.fields.pop('author', None)
 

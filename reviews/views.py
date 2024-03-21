@@ -55,8 +55,7 @@ class AddReview(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Review
     form_class = ReviewForm
     success_url = reverse_lazy('reviews')  # Use reverse_lazy for success_url
-
-
+   
     def form_valid(self, form):
         # Set the author of the review to the current user
         form.instance.author = self.request.user
@@ -78,8 +77,5 @@ class ReviewList(generic.ListView):
     model = Review
     template_name = 'reviews/reviews.html'
     paginate_by = 6
-
-    def get_queryset(self):
-        return Review.objects.all()
 
    
