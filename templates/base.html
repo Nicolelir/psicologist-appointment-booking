@@ -36,21 +36,18 @@
 
     {% include 'includes/header.html' %}
     <!-- displaying Django messages -->
-    <div class="container">
-        <div class="row">
+    <div class="container mt-4">
+      <div class="row">
           <div class="col-md-8 offset-md-2">
-            {% for message in messages %}
-            <div class="alert {{ message.tags }} alert-dismissible
-              fade show" id="msg" role="alert">
-              {{ message | safe }}
-              <button type="button" class="btn-close"
-                data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            {% endfor %}
+              {% for message in messages %}
+              <div class="alert custom-alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                  <div class="py-2">{{ message | safe }}</div>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+              {% endfor %}
           </div>
-        </div>
-        </div>
-
+      </div>
+  </div>
         
         <main class="flex-shrink-0 main-bg">
             
@@ -60,7 +57,16 @@
             {% endblock content %}
     
         </main>
+   
+  <!-- JS to close alert message after 5 seconds from Bootstrap's JS: https://getbootstrap.com/docs/5.0/components/alerts/ -->
+  <script>
+    setTimeout(function () {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 5000);
     
+</script>
     <script src="{% static 'js/script.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

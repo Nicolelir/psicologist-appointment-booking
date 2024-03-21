@@ -55,6 +55,7 @@ main {
 }
 
 
+
 .justify-text {
     text-align: justify;
 }
@@ -70,12 +71,20 @@ main {
     padding-top: 30px;
    
 }
+
+.custom-alert {
+    background-color: #c3e6cb; /* Light green color */
+    color: #155724; /* Dark green text color */
+    border-color: #c3e6cb; /* Matching border color */
+    padding: 10px;
+    width: 80%;
+    margin: auto;
+}
 /* Homepage */
+
 .image {
     min-height: 200px; 
-    position: relative;
-    
-    
+    position: relative; 
 }
 
 .hero-image {
@@ -85,9 +94,8 @@ main {
     margin: 0 auto;
 }
 
+
 /* Footer */
-
-
 .contact-container {
     display: flex;
     flex-wrap: wrap;
@@ -141,7 +149,10 @@ main {
 }
 
 /* Header */
-
+.alert{
+    padding: 60px;
+    height: 20px;
+}
 .brand-link {
     text-decoration: none; /* Remove underline from link */
     margin-right: 20px;
@@ -195,7 +206,8 @@ main {
 #navbarNav {
     background-color: var(--white);
     border-bottom: 1px solid var(--brown); 
-    padding-top: 10px;
+    padding:0;
+   
 }
 
 a.nav-link  {
@@ -251,6 +263,7 @@ p.booking {
     text-align: center;
     
 }
+
 
 .icon-booking-btn {
     display: inline-block;

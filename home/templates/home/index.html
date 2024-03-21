@@ -1,72 +1,66 @@
 {% extends "base.html" %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
-{% load crispy_forms_tags %}
 <!-- Main content -->
 
+{% if not user.is_authenticated %}
+<div class="alert alert-light announcement animate__animated animate__slideInRight" role="alert" style="background-color: #c3e6cb;">
+    Invest in Yourself: Book a Session with Elvira, Your Trusted Mentor!
+</div>
+{% endif %}
+
 <div class="image">
-    <img class="hero-image"  src="{% static 'images/homepage.jpg' %}" style="width: 100%; height: auto">
+    <img class="hero-image" src="{% static 'images/homepage.jpg' %}" style="width: 100%; height: auto">
 </div>
 
+<div class="container mt-3 mb-3 justify-text">
+    <br>
+    <h2 class="mb-3 text-center">Welcome!</h2>
+    <h3 class="lead mb-3 text-center">
+        My name is Elvira Espinoza Ahumada, the psychologist behind "Psicologa en Ruta".</h3> 
+    <h3 class="lead mb-3 text-center"> 
+        My objective focuses on three aspects: offering you a safe and compassionate space where you can explore your emotions and heal all your wounds,
+        providing you with support during emigration processes, and helping you overcome the loss of a child during pregnancy, an experience that I have personally faced.
+        I am here to accompany you on your path to emotional well-being and personal growth, wherever you are in the world.</h3>
+</div>
+
+<div class="container-fluid">
+    {% if not user.is_authenticated %}
+    <div class="text-center m-3 signup">
+        <a href="{% url 'services' %}" class="btn btn-outline-custom">Read more about me!</a>
+    </div>
+    {% endif %}
+</div>
+
+<!-- Contact Form Column -->
+<div class="d-flex justify-content-center align-items-center">
     <div class="container mt-3 mb-3 justify-text">
-        <br>
-        <h2 class="mb-3 text-center">Welcome!</h2>
-        <h3 class="lead mb-3 text-center">
-            My name is Elvira Espinoza Ahumada, the psychologist behind ""Psicologa en Ruta""</h3> 
-         <h3 class="lead mb-3 text-center"> 
-            My objective focuses on three aspects; offer you a safe and compassionate space where you can explore your emotions and heal all your wounds, 
-            also provide you with support during emigration processes and finally, overcome the loss of a child during pregnancy, 
-            an experience that I have personally faced. I am here to accompany you on your path to emotional well-being and personal growth, 
-            wherever you are in the world.</h3>
+        <h3 class="mb-3 text-center contact-form titles">Contact me</h3>
+        <form action="{% url 'home:home' %}" method="post">
+            {% csrf_token %}
+            {{ form|crispy|safe }}
+            <button type="submit" class="btn btn-outline-custom">Submit</button>
+        </form>
     </div>
+</div>
 
- 
-
-    <div class="container-fluid">
-        <div>
-            {% if not user.is_authenticated %}
-            <p class="text-center m-3 signup"><a href="{% url 'services' %}" class="btn btn-outline-custom">Read more about me!</a></p>
-            {% endif %}
-        </div>
+<!-- Contact Info Column -->
+<div class="contact-container d-flex justify-content-center align-items-center">
+    <div class="contact-info">
+        <i class="fa fa-map-marker green-icon" aria-hidden="true"></i>
+        <span>123 Main Street, City, Country</span>
     </div>
+    <div class="contact-info">
+        <i class="fa fa-envelope green-icon" aria-hidden="true"></i>
+        <span>example@example.com</span>
+    </div>
+    <div class="contact-info">
+        <i class="fa fa-phone green-icon" aria-hidden="true"></i>
+        <span>+1234567890</span>
+    </div>
+</div>
 
-    
-        
-            <!-- Contact Form Column -->
-            <div class="d-flex justify-content-center align-items-center">
-                <div class="container mt-3 mb-3 justify-text">
-                    <h3 class="mb-3 text-center contact-form titles">Contact me</h3>
-                    <form action="{% url 'home:home' %}" method="post">
-                        {% csrf_token %}
-                        {{ form|crispy|safe }}
-                        <button type="submit" class="btn btn-outline-custom">Submit</button>
-                    </form>
-                </div>
-            </div>
-            
-            <!-- Contact Info Column -->
-            <div class="contact-container d-flex justify-content-center align-items-center">
-                <div class="contact-info">
-                    <i class="fa fa-map-marker green-icon" aria-hidden="true"></i>
-                    <span>123 Main Street, City, Country</span>
-                </div>
-                <div class="contact-info">
-                    <i class="fa fa-envelope green-icon" aria-hidden="true"></i>
-                    <span>example@example.com</span>
-                </div>
-                <div class="contact-info">
-                    <i class="fa fa-phone green-icon" aria-hidden="true"></i>
-                    <span>+1234567890</span>
-                </div>
-            </div>
-      
-    
-                   
-           
-       
 {% endblock %}
-
-
 
