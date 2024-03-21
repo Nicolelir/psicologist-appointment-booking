@@ -103,3 +103,4 @@ class DeleteBooking(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         return super().delete(request, *args, **kwargs)
 
 
+    

@@ -40,6 +40,7 @@ body {
     font-family: var(--main-font);
     color: var(--dark);
     background-color: var(--off-white);
+    padding-top: 60px; 
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -71,14 +72,17 @@ main {
 }
 /* Homepage */
 .image {
-    min-height: 400px; 
+    min-height: 200px; 
     position: relative;
+    
     
 }
 
 .hero-image {
-    width: 100%;
-    height: auto;
+    max-width: 100%; /* Set maximum width to ensure responsiveness */
+    max-height: 500px; /* Set maximum height to make the image less tall */
+    display: block; /* Ensure the image behaves as a block-level element */
+    margin: 0 auto;
 }
 
 /* Footer */
@@ -151,6 +155,13 @@ main {
    
 }
 
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the navbar appears above other content */
+}
 
 .nav-title-psicologa {
     font-size: 15px;
@@ -321,9 +332,21 @@ p.booking {
 
 /*Media queries*/
 /*Homepage*/
-@media (max-width: 768px) {
-    .image .hero-image {
-        background-size: contain;
+@media (min-width: 768px) {
+    .hero-image {
+        max-height: 500px; /* Set a larger maximum height for screens wider than 768 pixels */
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-image {
+        max-height: 700px; /* Set an even larger maximum height for screens wider than 992 pixels */
+    }
+}
+
+@media (min-width: 1200px) {
+    .hero-image {
+        max-height: 800px; /* Set the maximum height for very large screens */
     }
 }
 /*Reviews*/
