@@ -26,7 +26,7 @@
 </div>
 
 <div class="mb-3 text-center align-items-center">
-    <h1 class="mb-3 text-center  titles">Services</h1>
+    <h1 class="mb-3 text-center titles">Services</h1>
 </div>
 
 <div class="container d-flex flex-row flex-wrap justify-content-center justify-text mb-5">
@@ -48,9 +48,9 @@
     <div>
         {% if user.is_authenticated %}
             <h3>Dreams are bigger than fears!</h3>
-            <p class="text-center m-3 signup"><a href="{% url 'booking_add' %}" class="btn btn-outline-custom w-50 mb-2 align-self-center">Book your appointment here!</a></p>
+            <p class="text-center m-3 signup"><a href="{% url 'booking_add' %}" class="btn btn-outline-custom w-25 mx-auto mb-4">Book your appointment here!</a></p>
         {% else %}
-        <p class="text-center m-3 signup"><a href="{% url 'account_login' %}" class="btn btn-outline-custom w-50 mb-2 align-self-center">To book an appointment with me please sign in here!</a></p>
+        <p class="text-center m-3 signup"><a href="{% url 'account_login' %}" class="btn btn-outline-custom w-25 mx-auto mb-4">To book an appointment with me please sign in here!</a></p>
             
         {% endif %}
     </div>

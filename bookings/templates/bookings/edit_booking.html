@@ -8,7 +8,7 @@
 
 {% load crispy_forms_tags %}
 <div class="text-center">
-    <h1 class="text-center mx-auto section-title my-3" id="booking">Edit Booking</h1>
+    <h1 class="text-center my-3 mx-auto titles">Edit Booking</h1>
     <form method="post" class="text-center w-75 mx-auto booking-section">
         {% csrf_token %}
         <div class="row mx-auto">
@@ -26,16 +26,20 @@
                 {{ form.date|as_crispy_field|safe }}
                 {{ form.time|as_crispy_field|safe }}
             </div>
-           
             </div>
-        </div>
-        <button type="submit" class="btn btn-custom w-50 mb-2 align-self-center">Save</button>
+       
+        <button type="submit" class="btn btn-outline-custom w-25 mx-auto mb-4">Save</button>
     </form>
 </div>
 
-
-
-<div>
-    <a href="{% url 'bookings' %}" class="btn btn-outline-custom w-50 mb-2 align-self-center" title="Make a Booking">My appointments</a>
+<div class="d-flex justify-content-center align-items-center">
+    <a href="{% url 'bookings' %}" class="btn-container">
+        <div class="icon-container">
+            <img src="{% static 'icons/booking.png' %}" alt="Your appointments" class="icon-review-btn booking-icon">
+        </div>
+        <span class="button-text">Your Appointments</span>
+    </a>
 </div>
+    
+
 {% endblock %}

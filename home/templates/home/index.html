@@ -5,12 +5,6 @@
 {% block content %}
 <!-- Main content -->
 
-{% if not user.is_authenticated %}
-<div class="alert alert-light announcement animate__animated animate__slideInRight" role="alert" style="background-color: #c3e6cb;">
-    Invest in Yourself: Book a Session with Elvira, Your Trusted Mentor!
-</div>
-{% endif %}
-
 <div class="image">
     <img class="hero-image" src="{% static 'images/homepage.jpg' %}" style="width: 100%; height: auto">
 </div>
@@ -37,8 +31,9 @@
 <!-- Contact Form Column -->
 <div class="d-flex justify-content-center align-items-center">
     <div class="container mt-3 mb-3 justify-text">
-        <h3 class="mb-3 text-center contact-form titles">Contact me</h3>
-        <form action="{% url 'home:home' %}" method="post">
+        <h3 class="mb-3 text-center contact-form titles my-3">Contact me</h3>
+        <p><small>* All fields are required</small></p>
+        <form action="{% url 'home:home' %}" method="post" class="text-center w-85 mx-auto">
             {% csrf_token %}
             {{ form|crispy|safe }}
             <button type="submit" class="btn btn-outline-custom">Submit</button>
