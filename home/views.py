@@ -17,23 +17,16 @@ def contact_form_view(request):
     return render(request, 'home/index.html', {'form': form, 'message_sent': message_sent})
 
 def home_view(request):
-    message_sent = False  # Initialize the success message flag
-
+    
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            # Set the success message flag to True
-            message_sent = True
             messages.success(request, "Your message has been sent successfully!")
+            return redirect('home:home')  # Redirect to the home page to clear the form
     else:
         form = ContactForm()
 
-    if not request.user.is_authenticated:
-        # User is not authenticated, display the message
-        message = "Invest in Yourself: Book a Session with Elvira, Your Trusted Mentor!"
-    else:
-        # User is authenticated, do not display the message
-        message = None
+    return render(request, 'home/index.html', {'form': form})
 
-    return render(request, 'home/index.html', {'form': form, 'message': message, 'message_sent': message_sent})
+   

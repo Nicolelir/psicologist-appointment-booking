@@ -7,6 +7,7 @@ class ReviewForm(forms.ModelForm):
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
 
+
         if user:
             self.fields['booking'].queryset = Booking.objects.filter(user=user)
             

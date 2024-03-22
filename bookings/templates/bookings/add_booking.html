@@ -13,7 +13,7 @@
     <form method="post" class="text-center w-75 mx-auto my-3 booking-section">
         {% csrf_token %}
         <div class="row">
-            <!-- Calling each form input item to allow for more control in styling -->
+           
             <div class="col m-4 mb-5">
                 <h4 class="text-center mb-3">Your Details</h4>
                 {{ form.first_name|as_crispy_field|safe }}
