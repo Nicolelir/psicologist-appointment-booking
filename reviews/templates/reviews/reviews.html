@@ -7,7 +7,6 @@
     <div class="row align-items-center">
         <div class="col-md-6 offset-md-3">
             <h1 class="mb-3 text-center titles" id="auth">Reviews</h1>
-            <p></p>
         </div>
     </div>
 </div>
@@ -33,7 +32,7 @@
                             <h5 class="card-author">{{ review.author }}</h5>
                             <p class="card-created-on">{{ review.created_on }}</p>
                             <p class="card-service"><strong>Service:</strong> {{ review.service }}</p>
-                            <p class="card-content">{{ review.text }}<a href="{% url 'review_detail' pk=review.pk %}" class="review_detail" aria-label="Click to see more about {{ review.author }}">see more</a></p></p>
+                            <p class="card-content">{{ review.text|slice:":100" }}{% if review.text|length > 100 %} <a href="{% url 'review_detail' pk=review.pk %}" class="review_detail" aria-label="Click to see more about {{ review.author }}"> see more</a>{% endif %}</p>
                             <div class="rating bordered-star">
                                 {% if review.rating == 1 %}
                                 <span>&#x2605;</span>

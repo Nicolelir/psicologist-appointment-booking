@@ -5,14 +5,21 @@
 {% block content %} 
 
     <div class="container">
-        <div class="review-info mt-3 p-1"></div>
+        <div class="review-info mt-3 p-1">
            
             <div class="review-detail">
-                <h1 class="text-center">{{ review.author }}</h1>
-                <hr>
-                <p class="text-center">{{ review.author }}</p>
-                <!-- Add else if statement for edit and delete profile -->
+                <h1 class="card-author text-center">{{ review.author }}</h1>
+                <hr style="border-color: #8B4513">
+                <p class="card-created-on text-center">{{ review.created_on }}</p>
+                <p class="card-service text-center"><strong>Service: {{ review.service }}</strong></p>
+                <p class="card-content text-center">{{ review.text }}</p>
+                <hr style="border-color: #8B4513">
             </div>
         </div>
+    </div>
+
+
+
   
+    <p class="text-center m-3 signup"><a href="{% url 'reviews' %}" class="btn btn-outline-custom w-35 mx-auto mb-4">Back to Reviews</a></p>
 {% endblock %}
