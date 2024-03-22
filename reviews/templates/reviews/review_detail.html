@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}ReviewDetail - {{ review.author }}{% endblock %}
+
+{% block content %} 
+
+    <div class="container">
+        <div class="review-info mt-3 p-1"></div>
+           
+            <div class="review-detail">
+                <h1 class="text-center">{{ review.author }}</h1>
+                <hr>
+                <p class="text-center">{{ review.author }}</p>
+                <!-- Add else if statement for edit and delete profile -->
+            </div>
+        </div>
+  
+{% endblock %}

@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.contrib.auth.models import User
@@ -78,4 +78,9 @@ class ReviewList(generic.ListView):
     template_name = 'reviews/reviews.html'
     paginate_by = 6
 
-   
+class ReviewDetail(DetailView):
+    """View a single review"""
+
+    template_name = "reviews/review_detail.html"
+    model = Review
+    context_object_name = "review"

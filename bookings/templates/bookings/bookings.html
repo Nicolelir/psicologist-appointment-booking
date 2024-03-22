@@ -20,7 +20,7 @@
     <div class="table-responsive my-4 w-75 mx-auto">
         <table class="table">
             <thead>
-                <tr style="border-color:burlywood;">
+                <tr style="border-color:#8B4513;">
                     <th>Date</th>
                     <th>Time</th>
                     <th>Edit/Delete</th>
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 {% for booking in request.user.bookings.all %}
-                <tr style="border-color: burlywood;">
+                <tr style="border-color: #8B4513;">
                     <td>{{ booking.date|safe }}</td>
                     <td>{{ booking.time|safe}}</td>
                     <td>{% if request.user == booking.user %}

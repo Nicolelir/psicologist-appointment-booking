@@ -8,8 +8,8 @@
 {% block title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container text-center">
-  <h1>{% trans "Sign Up" %}</h1>
+<div class="container text-center lead mb-3 title-login ">
+  <h1 class="titles mb-3">{% trans "Sign Up" %}</h1>
 
   <p class="title-signup">{% blocktrans %}Not Sure If Therapy Is For You?
     <p class="p-signup">Explore the Benefits of therapy, Goal setting and Reflections
@@ -21,7 +21,7 @@
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
-    <button type="submit" class="btn btn-custom w-25">Sign Up</button>
+    <button type="submit" class="btn btn-outline-custom w-25 mb-2">Sign Up</button>
   </form>
 </div>
 {% endblock %}
