@@ -41,17 +41,17 @@
     {% include 'includes/header.html' %}
     <!-- displaying Django messages -->
     <div class="container mt-4">
-      <div class="row">
-          <div class="col-md-8 offset-md-2">
-              {% for message in messages %}
-              <div class="alert custom-alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                  <div class="py-2">{{ message | safe }}</div>
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-              </div>
-              {% endfor %}
-          </div>
-      </div>
-  </div>
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                {% for message in messages %}
+                <div class="alert custom-alert {{ message.tags }} alert-dismissible fade show" id="msg{{ forloop.counter }}" role="alert">
+                    <div class="py-2">{{ message | safe }}</div>
+                    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
         
         <main class="flex-shrink-0 main-bg">
             
