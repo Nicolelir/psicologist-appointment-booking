@@ -66,6 +66,7 @@ main {
     
 }
 
+/* Django messages */
 .custom-alert {
     background-color: #c3e6cb; 
     border-color: #c3e6cb; 
@@ -73,80 +74,6 @@ main {
     width: 80%;
     margin: auto;
 }
-
-
-/* Homepage */
-
-.image {
-    min-height: 200px; 
-    position: relative; 
-}
-
-.hero-image {
-    max-width: 100%; 
-    max-height: 800px; 
-    display: block; 
-    margin: 0 auto;
-}
-
-
-/* Footer */
-
-
-.contact-info span {
-    font-size: 16px; 
-}
-
-.copyright{
-    font-size: 14px; 
-}
-
-.footer{
-    border-top: 2px solid var(--brown); 
-    background-color: var(--white);
-}
-
-.contact-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center; /* This will center the text within each contact-info div */
-}
-
-.contact-info {
-    margin-bottom: 10px; /* Add margin between each contact-info item */
-}
-
-/* Media query for screens smaller than 768px (adjust the breakpoint as needed) */
-@media screen and (max-width: 768px) {
-    .contact-container {
-        display: block;
-    }
-
-    .contact-info {
-        margin-bottom: 10px;
-    }
-}
-
-.green-icon li a i {
-    width: 40px;
-    height: 40px;
-    line-height: 40px; 
-    text-align: center; 
-    font-size: 20px;
-    color:white;
-    background: forestgreen;
-    border-radius: 50%;
-    display: inline-block; 
-    transition: all 0.35s ease-in-out;
-}
-
-
-.green-icon  {
-    color: forestgreen;
-    margin-bottom: 0;
-}
-
 
 /* Header */
 
@@ -168,24 +95,20 @@ main {
     left: 0;
     width: 100%;
     z-index: 1000; 
- 
 }
 
 .nav-title-psicologa {
     font-size: 0.8em;
     font-family: "Beau Rivage", cursive;
     font-style: normal;
-   
 }
 
 .elvi {
-    font-size: 1.2em;
-    
+    font-size: 1.2em; 
 }
 
 .nav-title-elvi {
-    color: var(--brown);
-    
+    color: var(--brown);  
 }
 
 .nav-title,
@@ -205,13 +128,11 @@ main {
 #navbarNav {
     background-color: var(--white);
     padding:0;
-    border-bottom: 2px solid var(--brown); 
-    
+    border-bottom: 2px solid var(--brown);   
 }
 
 a.nav-link  {
-    color: var(--brown);
-    
+    color: var(--brown);   
 }
 
 .navbar-brand{
@@ -231,8 +152,6 @@ img.logo {
     background-color:#FFEBCD; 
 }
 
-
-
 .header-container {
     display: flex; 
     justify-content: space-between; 
@@ -247,6 +166,100 @@ img.logo {
     color:var(--brown);
 }
 
+/* Footer */
+.copyright{
+    font-size: 14px; 
+}
+
+.footer{
+    border-top: 2px solid var(--brown); 
+    background-color: var(--white);
+}
+
+
+
+.green-icon li a i {
+    width: 40px;
+    height: 40px;
+    line-height: 40px; 
+    text-align: center; 
+    font-size: 20px;
+    color:white;
+    background: forestgreen;
+    border-radius: 50%;
+    display: inline-block; 
+    transition: all 0.35s ease-in-out;
+}
+
+
+.green-icon  {
+    color: forestgreen;
+    margin-bottom: 0;
+}
+
+/*/// Homepage ///*/
+
+.image-container {
+    width: 100%;
+    max-width: 100%;
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+/* Contact Form */
+.contact-info span {
+    font-size: 16px; 
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; /* This will center the text within each contact-info div */
+}
+
+.contact-info {
+    margin-bottom: 10px; /* Add margin between each contact-info item */
+}
+
+/*/// Services Page ///*/
+
+.profile-image {
+    width: 75%;
+}
+
+.card {
+    width: 18rem;
+    margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);  
+}
+
+.card img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.card-text {
+    margin-bottom: 1rem;
+}
+
+/*/// Bookings Page ///*/
 p.booking {
     font-weight: 300;
     font-family: 'Bungee', sans-serif;
@@ -254,28 +267,65 @@ p.booking {
 
 .custom-header th {
     border-color: #8B4513;
-    text-align: center; /* Center text horizontally */
-    vertical-align: middle; /* Center text vertically */
+    text-align: center; 
+    vertical-align: middle; 
 }
 
 .booking-container {
     text-align: center;
 }
 
-.btn-container {
-    display: inline-block;
-    text-align: center;
-    text-decoration: none;
-}
-
 .icon-container {
     display: inline-block;
-    margin-bottom: 5px; /* Adjust as needed */
+    margin-bottom: 5px; 
 }
 
 .booking-icon {
     width: 70px; 
     vertical-align: middle;
+}
+
+/*/// Reviewss Page ///*/
+.card-rev {
+    width: 18rem;
+    height: 100%;
+    margin: 10px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    display: inline-block;
+    color:orange; 
+}
+
+
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+    font-size: 1.5em;
+}
+
+
+/* Adjust the number of stars based on the rating */
+.rating[data-rating="1"] > span:nth-child(n+2):before,
+.rating[data-rating="2"] > span:nth-child(n+3):before,
+.rating[data-rating="3"] > span:nth-child(n+4):before,
+.rating[data-rating="4"] > span:nth-child(n+5):before,
+.rating[data-rating="5"] > span:nth-child(n+6):before {
+content: "\2606"; 
+}
+
+
+/*/// btn ///*/
+.btn-container {
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
 }
 
 .button-text {
@@ -285,8 +335,6 @@ p.booking {
     text-decoration: none; 
     margin-bottom: 20px;
 }
-
-
 
 .icon-booking-btn {
     display: inline-block;
@@ -307,42 +355,6 @@ p.booking {
     background: none;
     cursor: pointer;
     margin-top: 30px;
-}
-
-
-
-/*Services*/
-
-.profile-image {
-    width: 75%;
-}
-
-.card {
-    width: 18rem;
-    margin: 10px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-    
-}
-
-.card img {
-    height: 200px;
-    width: 100%;
-    object-fit: cover;
-}
-
-.card-body {
-    padding: 1.25rem;
-}
-
-.card-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-}
-
-.card-text {
-    margin-bottom: 1rem;
 }
 
 .btn-delete{
@@ -375,71 +387,43 @@ p.booking {
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5); 
 }
 
-/*Media queries*/
-/*Homepage*/
-@media (min-width: 768px) {
-    .hero-image {
-        max-height: 500px; /* Set a larger maximum height for screens wider than 768 pixels */
-    }
-}
+ /* Log in */
+ .title-login{
+    font-family: var(--title);
+    padding-top: 30px;
+     }
 
-@media (min-width: 992px) {
+/*/// Media Queries ///*/
+
+/*Homepage*/
+@media (max-width: 768px) {
     .hero-image {
-        max-height: 700px; /* Set an even larger maximum height for screens wider than 992 pixels */
+        width: 90%;
     }
 }
 
 @media (min-width: 1200px) {
     .hero-image {
-        max-height: 800px; /* Set the maximum height for very large screens */
+        width: 70%;
     }
 }
-/*Reviews*/
 
-    .card-rev {
-        width: 18rem;
-        height: 100%;
-        margin: 10px;
-        background-color: #f0f0f0;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
-        
-    }
-
-    .rating {
-        unicode-bidi: bidi-override;
-        direction: rtl;
-        display: inline-block;
-        color:orange;
-        
-    }
-    
-
-    .rating > span {
-        display: inline-block;
-        position: relative;
-        width: 1.1em;
-        font-size: 1.5em;
-    }
-    
-
-    /* Adjust the number of stars based on the rating */
-.rating[data-rating="1"] > span:nth-child(n+2):before,
-.rating[data-rating="2"] > span:nth-child(n+3):before,
-.rating[data-rating="3"] > span:nth-child(n+4):before,
-.rating[data-rating="4"] > span:nth-child(n+5):before,
-.rating[data-rating="5"] > span:nth-child(n+6):before {
-    content: "\2606"; /* Display empty star for remaining stars */
-}
- /* Log in */
- .title-login{
-font-family: var(--title);
-padding-top: 30px;
- }
 
  /* Media query for larger screens */
 @media screen and (min-width: 768px) {
     .contact-info {
         flex: 1; /* Each item takes equal space */
+    }
+}
+
+/*Footer*/
+/* Media query for screens smaller than 768px (adjust the breakpoint as needed) */
+@media screen and (max-width: 768px) {
+    .contact-container {
+        display: block;
+    }
+
+    .contact-info {
+        margin-bottom: 10px;
     }
 }
