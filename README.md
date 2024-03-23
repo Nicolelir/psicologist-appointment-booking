@@ -3,8 +3,7 @@
 
 ![Logo]()
 
-[Click here to view the live web application]()
-
+[Click here to view the live web application](https://elvira-espinoza-50ffaf8a32fa.herokuapp.com/)
 
 
 ## Index - Table of Content
@@ -29,6 +28,15 @@ About the user stories, I created based on a Template, which acted as the skelet
 **As a (role) I can (capability) so that (received_benefit)**
 
 with their respective "Acceptance Criteria" which would need to be met in order for the User Story issue to be marked as Done. The acceptance criteria was very helpful to ensure all necessary tasks were completed, helping me to organise and prioritise my workflow. This has been essential due to the very limited timeframe we had to complete this project.
+
+## MoSCoW Prioritization
+I followed the MoSCoW Prioritization method for this project, with the following labels:
+
+Must Haves: the 'required', critical components of the project. 
+
+Should Haves: the components that are valuable to the project but not absolutely 'vital' at the MVP stage. The 'Must Haves' must receive priority over the 'Should Haves'.
+
+Could Haves: these are the features that are a 'bonus' to the project, it would be nice to have them in this phase, but only if the most important issues have been completed first and time allows.
 
 ![img]()
 
@@ -64,37 +72,36 @@ with their respective "Acceptance Criteria" which would need to be met in order 
 |  #14 |As a **site admin** I can **approve or delete reviews** so that **I can filter out objectionable reviews and manage my website content**||**MUST HAVE**|
 
 
-### First time user
-
-### Registered user
-
-### Admin user
-
 ## Design
 
 ### Color Scheme
 
-The colours were selected with the intention of complementing the colors of the logo, in a mix of green and brown. 
+The colours were selected with the intention of complementing the colors of the logo, in a mix of green and brown. The logo was provided by Elvira and the color have a special meaning for her, so I tried to maintain the color palette that she wanted, but also considering visibility and contrasts for a better user experience.
 
 ### Wireframes
 Were created using Balsamiq. The sections below show individual wireframes for different devices:
 
 - Home Page
-
+The homepage has a hero image, a welcome section and a contact form, below the contact form there is a button "Read more about me!" that goes directly to the Services page. 
 ![img]()
 
 - About/Services
+This page has 2 sections, one "About me" section where users can read about Elvira's mission and vision. 
+The second section has a list of the services provided for the specialist and at the bottom of the page there is a button that users can click if they decided to go ahead booking an appoinment. In order to access to the booking page users need to sign in or register first. 
 
 ![img]()
 
-- Book an appointment
+- Book an appointment 
 
 ![img]()
 
-- Post a review
+- Post a review 
+
+
 ![img]()
 
-- List of R=rerviews 
+- List of Rerviews 
+
 
 ### Database Scheme
 Entity Relationship Diagrams (ERD) help the developer to make connections between databases and information. Creating an ERD helped me understand how the tables relate to one another and their connection with PostgreSQL Database. I used LucidChart to create the diagram and the arrow represent how the data fields relate to one another.
@@ -109,7 +116,9 @@ CRUD functionality was implemented in both booking courses and commenting where:
 - Update: An authenticated user can edit and update their own booked courses or comments.
 - Delete: An authenticated user can delete their own booked courses or comments.
 
-In this proyect the feature "booking" has full CRUD functionality available whilst "reviews" allows users to CREATE and READ only. I felt unneccessary to add the option of UPDATE or DELETE a review since...............................Post can be deleted form Admin Panel. 
+In this proyect the feature "booking" has full CRUD functionality available whilst "reviews" allows users to CREATE and READ only. I felt unneccessary to add the option of UPDATE or DELETE a review since it is not common for users to return to a site to modify or delete a review. That functionality works better in blogs.  
+
+Post can be deleted form Admin Panel. 
 
 ### Data Models
 
@@ -119,7 +128,7 @@ In this proyect the feature "booking" has full CRUD functionality available whil
 
 | User|            |   |
 |----------|:-------------:|------:|
-| id |  AutoField | PK|
+| id |  AutoField |
 | username |  CharField|
 | email|  EmailField   |   
 | password | CharField | 
@@ -131,12 +140,13 @@ In this proyect the feature "booking" has full CRUD functionality available whil
 | Booking|            |   |
 |----------|:-------------:|------:|
 | id |  AutoField | PK|
-| first_name |  CharField   |   FK |
-| last_name | CharField |  FK    |
-| email |  EmailField | FK |
+| user |  CharField | FK
+| first_name |  CharField   | 
+| last_name | CharField |  
+| email |  EmailField | 
 | service|  CharField   |   FK |
-| day | DateTime(unique) |    |
-| time |  DateTime(unique) |  |
+| day | DateTime |    |
+| time |  CharField |  |
 | notes |  TextField |  |
 
 3. Review Model
@@ -148,9 +158,9 @@ In this proyect the feature "booking" has full CRUD functionality available whil
 | id |  AutoField | PK|
 | author |  CharField   |   FK |
 | service|  CharField   |   FK |
-| created_on | DateTime(unique) | 
+| created_on | DateTime | 
 | rating| Positive int Field, max=5, min=o   |   
-| notes |  RichTextField |  |
+| notes |  TextField |  |
 
 4. Service Model 
 - The service model is related with the Booking model and the Review model, users can select a service at the momoent of booking an appointment 
@@ -159,8 +169,8 @@ In this proyect the feature "booking" has full CRUD functionality available whil
 | Service|            |   |
 |----------|:-------------:|------:|
 | id |  AutoField | PK|
-| title |  CharField   |   FK |
-| description|  TextField   |
+| title |  CharField   |   
+| description|  RichTextField   |
 | image | CloudinaryField | 
 
 5. Contact Model 
@@ -169,13 +179,22 @@ In this proyect the feature "booking" has full CRUD functionality available whil
 | Contact|            |   |
 |----------|:-------------:|------:|
 | id |  AutoField | PK|
-| name |  CharField   |   FK |
+| name |  CharField   |   
 | email|  EmailField   |   
-| query |RichTextField| 
+| query |TextField| 
+| date | DateField|
 | read|BooleanField  |   
 
 #### Allauth User Model
 The User model was built using Django's Allauth library
+
+**All Users:**
+- Are able to view the services provided for the specialist and a list of reviews from other users
+
+**Registered Users Only:**
+- Can book and appointment
+- Can create, read, udpate and delete an appointment from their personal dashboard  (Front End CRUD functionality)
+- Can post a review, but only after they have scheduled an appointment.
 
 ## Technologies Used
 
@@ -226,11 +245,34 @@ css file which are used on all pages of the project.
 (Part of the base html)
 
 ### Nav Menu 
+- The navigation bar appears on every page so users can easily navigate through the site and it is also fixed, so users don't need to go back to the top of the page is they want to move to a different page.
+
+- When the user hasnt log in, the nav bar will display links for 'ELVI your psychologist!' (Home page), 'Services', 'Reviews',  and 'Login/Register'
+
+![]()
+
+- If the user is logged in, then the left side of the menu will show links for pages that only authorized users can visit and use, they are: 'Book an appointment' and a dropdown menu when the user name and links for 'Your Bookings', 'Add a Review' and 'Logout'. Otherwise, the user will be given the option to 'Register' or 'Login'
+
+![]()
+
+- The navbar is fully responsive, collapsing into a hamburger menu for medium and small screen size
+
+![]()
+
+### Hero Image
+
+-Hero Image shows a large image of Elvira, which was chosen by her, and which represents the style of psychology that she practices, in an environment of trust, relaxation..........................................
+
+![]()
+
+### Contact Form
+- 
 
 ![]()
 
 ### Footer
-Links in the footer redirect to respective social media pages.
+- Just like the nav bar, the footer appears on every page and provides links to respective social media pages.
+- Links are opened in a new tab to avoid dragging users from our site
 
 ![]()
 
@@ -238,7 +280,9 @@ Links in the footer redirect to respective social media pages.
 
 ### Sign Up Page
 
-Registration allows users to book and appointment with the therapist and also post a review after their booking. 
+- Registration allows users to book and appointment with the therapist and also post a review after their booking. Users are required to add their Email, Username and Password twice, to ensure the correct one is saved. If any field is not filled in appropriately then a display message is used to inform the user with how to procede to complete the form.
+
+- A 'Forgot Password' page is also re-designed from the AllAuth templates but it's full functionality is not yet activated for this version.
 
 ![]()
 
@@ -246,43 +290,49 @@ Registration allows users to book and appointment with the therapist and also po
 
 ![]()
 
-### About section
+### About section 
 
 ![]()
 
-### Services section
+### Services section 
 
 ![]()
 
 
-### Book and appointment
+### Book and appointment 
+- This page contain a simple form with a section for user details and anoter section for choose date and time. All fields are required: First Name, Last Name, Email and Service (online consultation, individual/family therapy and Workshop).
+- There is no limit for bookings, users can book as many apoointment as they want.  
+- The user may create, edit and delete their bookings, they are informed if a date/time is unavailable and they see a display message if their booking is saved.
+- For creating a booking, the user is informed of the necessary fields to be filled in (*)
+- A dropdown selection of 'Services' is available. This information is important for later, in case the user wants to post a review, it would be associated to the booking date and the serviced booked. Unfortunately, that part of the model is not 100% implemented for this version. 
+- Date and time is selectable via a calendar widget for date and dropdown selection menu displaying the hour slots from 9am to 6pm. 
+- If a date/time combo is unavailable then the user is informed via warning message. 
+- User feedback is delivered by message once a booking has been submitted and updated, message disappears after 5 seconds. 
 
 ![]()
 
 ### List of user's appointments
-
+- Dashboard only visible for Logged-In Users who have made a previous booking
 ![]()
 
 ### Edit appointments
-
+- When logged in, a edit icon will appear to allow users to modify and update their bookings if they wish.
 ![]()
 
 ### Delete appointments
-
+- When logged in, a trash icon will appear to allow users to delete their bookings if they wish.
 ![]()
 
 ### List of the latest reviews
-
-
-![]()
-
-### Pagination
-
+- The Reviews page shows all the reviews that have been posted by different users, and are shown in order from newest to oldest
+- Each review card will display the author's name, date posted, the service booked, a body section for the comments and a rating scale 1 to 5 represented for stars
+- If the body section for comments that exceeds a certain amount of characters , users will see a "see more" hyperlink that will allow them to display the complete content in a new window, favoring a better visualization of the content.
 
 ![]()
+
 
 ### Add a review
-
+This page contain a form with details of: booking date, service, date, rating and a comment. All fields are requested for submit the form.
 
 ![]()
 
@@ -293,12 +343,24 @@ Registration allows users to book and appointment with the therapist and also po
 
 ### Admin Panel
 
+- To access the Admin panel the Admin user adds '/admin/' to the end of the URL to display https://elvira-espinoza-50ffaf8a32fa.herokuapp.com/admin/. A username and password is requested. For this project, Admin approval is not needed so registered, logged-in users' have instant access to make a booking and post a review.
 
+- Admin can control users bookings, reviews and contact requests via the Django Admin panel.
 ![]()
 
 
 ## Feature Features
 This is definitely a project I want to revisit in the future and add some extra features to......................................................
+
+- Updated Booking system with a calendar that shows only the available days. The same idea with the available times. Considering that Elvira always has a full schedule, a better experience for the user would be to be able to see only the available hours displayed in the dropdoen menu so they wouldn't have to check one by one and receive "Day not available" messages all times.
+
+- Filter the services that were scheduled on each date for a more personalized review. My mentor explained to me that code require a little more knowledge, because it is generated dynamically. This is something that I really want to learn to incorporate in another opportunity
+
+- Pagination Reviews page. 
+Depending on the number of reviews that are added to the page, it would be convenient to have the option of seeing only 6 or 8 reviews per page so users don't to scroll down so much, generating a better user experience.
+
+- Enable the option to reset password
+
 
 ## Testing
 
