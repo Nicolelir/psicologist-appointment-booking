@@ -12,8 +12,6 @@
         <div class="row">
             <div class="col m-4 mb-5">
                 <h4 class="text-center mb-3">Details</h4>
-             
-                 
                     {{ form.booking|as_crispy_field|safe }}
                     {{ form.service|as_crispy_field|safe }}
                     {{ form.created_on|as_crispy_field|safe}}
@@ -21,7 +19,6 @@
                     {{ form.text |as_crispy_field|safe}}
                 </div>
             </div>
-        </div>
         <button type="submit" class="btn btn-outline-custom d-block w-25 mx-auto mb-4">Save</button>
     </form>
 </div>
