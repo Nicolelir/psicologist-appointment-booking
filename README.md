@@ -278,11 +278,13 @@ css file which are used on all pages of the project.
 
 - When the user hasnt log in, the nav bar will display links for 'ELVI your psychologist!' (Home page), 'Services', 'Reviews',  and 'Login/Register'
 
-![img](documentation/features/nav_bar_user.PNG)
+![img](documentation/features/nav_bar_logout.PNG)
 
 - If the user is logged in, then the left side of the menu will show links for pages that only authorized users can visit and use, they are: 'Book an appointment' and a dropdown menu when the user name and links for 'Your Bookings', 'Add a Review' and 'Logout'. Otherwise, the user will be given the option to 'Register' or 'Login'
 
-![img](documentation/features/nav_bar_logout.PNG)
+![img](documentation/features/nav_bar_user.PNG)
+
+![img](documentation/features/dropdown.PNG)
 
 - The navbar is fully responsive, collapsing into a hamburger menu for medium and small screen size
 
@@ -290,7 +292,7 @@ css file which are used on all pages of the project.
 
 ## Hero Image
 
--Hero Image shows a large image of Elvira, which was chosen by her, and which represents the style of psychology that she practices, in an environment of trust, relaxation..........................................
+-Hero Image shows a large image of Elvira, which was chosen by her, and which represents the style of psychology that she practices, in an environment of trust and relaxation. 
 
 ![img](documentation/features/hero_nav.PNG)
 
@@ -346,6 +348,8 @@ css file which are used on all pages of the project.
 
 ## Edit appointments
 - When logged in, a edit icon will appear to allow users to modify and update their bookings if they wish.
+
+![img](documentation/features/booking_update_message.PNG)
 
 ## Delete appointments
 - When logged in, a trash icon will appear to allow users to delete their bookings if they wish.
@@ -406,10 +410,12 @@ The two tools used were the Markup Validation Service and the CSS Validation Ser
 No errors were returned for all HTML or CSS across all tests. Some warnings were displayed.
 
 - HTML Validation by Direct Input
+
+![img](documentation/testing/html%20validator.PNG)
      
 - CSS Validation by Direct Input
 
-- JavaScript
+![img](documentation/testing/css_validator.PNG)
 
 
 ## Manual testing
@@ -469,28 +475,29 @@ Testing was carried out on multiple browsers such as Google Chrome, Microsoft Ed
 ## Lighthouse Testing
 
 A test in all pages was ran using Lighthouse within Google Chrome to verify performance and accessibility standards were met and to ensure best practices were followed.
-The full report can be viewed [here]().
+
 
 ### Homepage
-
-
+![img](documentation/testing/home_test.PNG)
 
 ### About / Services page
-
-
+![img](documentation/testing/services_test.PNG)
 
 ### Book and appointment page
+![img](documentation/testing/add_booking_test.PNG)
 
-
+![img](documentation/testing/bookings_list_test.PNG)
 
 ### Reviews page
 
+![img](documentation/testing/review_list_test.PNG)
 
+![img](documentation/testing/add_review_test.PNG)
 
 
 # Deployment 
 This project was deployed using Github and Heroku.
-The live deployed application can be found deployed on [Heroku](Add link herexxxxxxxxxxxxxxxx).
+The live deployed application can be found deployed on [Heroku](https://elvira-espinoza-50ffaf8a32fa.herokuapp.com/).
 
 ## Local Deployment
 This project can be cloned or forked in order to make a local copy on your own system.
@@ -547,9 +554,6 @@ pip3 freeze --local > requirements.txt
 
 2. Create a new file called env.py in the main directory.
 3. Add the DATABASE_URL value and your chosen SECRET_KEY and the Cloudinary URL to env.py file.
-
-Sample env.py file:(Add picture xxxxxxxxxxxxxxxxxx)
-
 4. Comment out the default database configuration.
 5. Add the Cloudinary and all the rest of libraries you need to the list of installed apps in settings.py
 6. Add the STATIC files settings - the url, storage path, directory path, root path, media url and default file storage path.
