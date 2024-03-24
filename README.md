@@ -258,14 +258,12 @@ Django Messages and to handle the notification dropdown and notification delete 
 
 - [Gitpod](https://www.gitpod.io/) - Used to create, edit & preview the project's code
 
-- [Google Fonts](https://fonts.google.com/) - Used to import the 'xxxxxxxxxxxx' and 'xxxxxxxxxxxxxxx' fonts into the style. 
+- [Google Fonts](https://fonts.google.com/) - Used to import the fonts into the style. 
 css file which are used on all pages of the project.
 
 - [Heroku](https://dashboard.heroku.com/)- Used for hosting the deployed back-end site.
 
 - [PostgreSQL](https://www.postgresql.org/) - Used as the relational database management.
-
-- [Markdown Builder by Tim Nelson](xxxxxxxxxxxxx) - Used to help generate the Markdown files.
 
 - [W3C](https://www.w3.org/) - Used for HTML & CSS Validation.
 
